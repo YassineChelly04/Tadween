@@ -1,0 +1,157 @@
+/* Brand tokens (Yassine Chelly brand identity v1.0, 06_Design-Tokens/tokens.css),
+   plus the few interface roles Tadween derives from them. */
+
+:root {
+  --paper: #F4EFE6;
+  --paper-raised: #FBF8F2;
+  --paper-sunk: #EAE3D6;
+  --ink: #141210;
+  --ink-muted: #5E574F;
+  --hairline: #D8D0C2;
+  --lapis: #1F2F7A;
+  --lapis-field: #1F2F7A;
+  --lapis-soft: #DDE1EF;
+  --on-lapis: #F4EFE6;
+  --ember: #E8501A;
+  --ember-text: #B53A0E;
+  --olive: #55642F;
+
+  --font-sans: "Readex Pro", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --font-serif: "Markazi Text", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-0: 0px;
+  --radius-sm: 4px;
+  --radius-full: 999px;
+
+  /* Interface roles */
+  --sidebar: color-mix(in srgb, var(--paper) 45%, var(--paper-sunk));
+  --hover: color-mix(in srgb, var(--ink) 6%, transparent);
+  --press: color-mix(in srgb, var(--ink) 10%, transparent);
+  --selection: color-mix(in srgb, var(--lapis) 22%, transparent);
+  --overlay: color-mix(in srgb, var(--ink) 28%, transparent);
+  --focus: var(--lapis);
+  --titlebar-h: 36px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Page icon colours: the brand palette, plus sea and brick to make eight. */
+  --icon-ink: var(--ink);
+  --icon-graphite: #6F675E;
+  --icon-lapis: #1F2F7A;
+  --icon-sea: #2B6474;
+  --icon-ember: #E8501A;
+  --icon-brick: #8E3A26;
+  --icon-olive: #55642F;
+  --icon-sand: #A2865A;
+
+  /* The cast. These never swap with the theme: Waraqa is always paper and Hibr
+     always ink. Night only lifts them enough to stand out on a dark ground. */
+  --ch-white: #F4EFE6;
+  --ch-black: #141210;
+  --ch-lapis: #1F2F7A;
+  --ch-paper: #FBF8F2;
+  --ch-paper-edge: #141210;
+  --ch-fold: #EAE3D6;
+  --ch-rule: #D8D0C2;
+  --ch-writing: #1F2F7A;
+  --ch-drop: #141210;
+  --ch-drop-edge: transparent;
+  --ch-olive: #55642F;
+  --ch-ember: #E8501A;
+
+  color-scheme: light;
+}
+
+/* Day: the same brand on white stock, for bright rooms. Paper loses its
+   yellow; ink, lapis and ember stay as they are. */
+:root[data-theme="day"] {
+  --paper: #FCFBF9;
+  --paper-raised: #FFFFFF;
+  --paper-sunk: #F0EEEA;
+  --ink-muted: #5A5651;
+  --hairline: #E2DFD9;
+  --lapis-soft: #E3E7F4;
+  --sidebar: #F6F5F2;
+}
+
+:root[data-theme="dark"] {
+  --paper: #141210;
+  --paper-raised: #1E1B18;
+  --paper-sunk: #0D0C0B;
+  --ink: #F4EFE6;
+  --ink-muted: #ABA399;
+  --hairline: #2E2A26;
+  --lapis: #9DB0F5;
+  --lapis-field: #283C96;
+  --lapis-soft: #1A2149;
+  --on-lapis: #F4EFE6;
+  --ember: #FF7A45;
+  --ember-text: #FF8F5E;
+  --olive: #A9B97A;
+  --sidebar: color-mix(in srgb, var(--paper) 55%, var(--paper-sunk));
+  --overlay: color-mix(in srgb, #000 55%, transparent);
+  --icon-graphite: #ABA399;
+  --icon-lapis: #9DB0F5;
+  --icon-sea: #7DBCCB;
+  --icon-ember: #FF7A45;
+  --icon-brick: #E0917A;
+  --icon-olive: #A9B97A;
+  --icon-sand: #D9C7A7;
+  --ch-lapis: #3D56C8;
+  --ch-paper: #F4EFE6;
+  --ch-paper-edge: transparent;
+  --ch-fold: #CFC6B6;
+  --ch-rule: #D8D0C2;
+  --ch-writing: #1F2F7A;
+  --ch-drop: #0B0A09;
+  --ch-drop-edge: #8D867C;
+  --ch-olive: #76874A;
+  --ch-ember: #FF7A45;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    --paper: #141210;
+    --paper-raised: #1E1B18;
+    --paper-sunk: #0D0C0B;
+    --ink: #F4EFE6;
+    --ink-muted: #ABA399;
+    --hairline: #2E2A26;
+    --lapis: #9DB0F5;
+    --lapis-field: #283C96;
+    --lapis-soft: #1A2149;
+    --on-lapis: #F4EFE6;
+    --ember: #FF7A45;
+    --ember-text: #FF8F5E;
+    --olive: #A9B97A;
+    --sidebar: color-mix(in srgb, var(--paper) 55%, var(--paper-sunk));
+    --overlay: color-mix(in srgb, #000 55%, transparent);
+    --icon-graphite: #ABA399;
+    --icon-lapis: #9DB0F5;
+    --icon-sea: #7DBCCB;
+    --icon-ember: #FF7A45;
+    --icon-brick: #E0917A;
+    --icon-olive: #A9B97A;
+    --icon-sand: #D9C7A7;
+    --ch-lapis: #3D56C8;
+    --ch-paper: #F4EFE6;
+    --ch-paper-edge: transparent;
+    --ch-fold: #CFC6B6;
+    --ch-rule: #D8D0C2;
+    --ch-writing: #1F2F7A;
+    --ch-drop: #0B0A09;
+    --ch-drop-edge: #8D867C;
+    --ch-olive: #76874A;
+    --ch-ember: #FF7A45;
+    color-scheme: dark;
+  }
+}

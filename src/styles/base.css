@@ -1,0 +1,405 @@
+/* Reset, type styles and primitives. The interface is always laid out left to
+   right, in every language; only written text follows its own direction. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  text-align: start;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 14px/1.5 var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+/* A Latin word inside an Arabic label, or the reverse, keeps its own word
+   order: each run resolves its direction from its own text. */
+:lang(ar) :is(p, h1, h2, h3, h4, label, button, span, a, li, small, strong, em, dt, dd, th, td, legend, kbd) {
+  unicode-bidi: plaintext;
+}
+
+:lang(ar) body {
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink) 16%, transparent);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--ink) 28%, transparent);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ── Type styles: Display, Text, Label ──────────────────────────────────── */
+
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.08;
+}
+
+:lang(ar) .t-display,
+.t-display:lang(ar) {
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.t-label {
+  font: 500 11px/16px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+/* Brand rule: Arabic labels use Readex Pro 500 without tracking. */
+:lang(ar) .t-label {
+  font: 500 12px/18px var(--font-sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.t-muted {
+  color: var(--ink-muted);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-0);
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 160ms var(--ease), color 160ms var(--ease), opacity 160ms var(--ease),
+    transform 120ms var(--ease);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--ink) 86%, var(--lapis));
+}
+
+.btn-primary:disabled {
+  opacity: 0.35;
+}
+
+.btn-lapis {
+  background: var(--lapis-field);
+  color: var(--on-lapis);
+}
+
+.btn-lapis:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--lapis-field) 88%, #000);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--ember-text);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ember-text) 40%, transparent);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--ember) 10%, transparent);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  height: 48px;
+  font-size: 15px;
+  padding: 0 var(--space-6);
+}
+
+.btn-link {
+  color: var(--lapis);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--lapis) 35%, transparent);
+}
+
+.btn-link:hover {
+  text-decoration-color: var(--lapis);
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--ink-muted);
+  border-radius: var(--radius-sm);
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.icon-btn:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.icon-btn[aria-pressed="true"] {
+  color: var(--lapis);
+}
+
+/* ── Fields: one hairline, like a ruled notebook ─────────────────────────── */
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.field-action {
+  font-size: 12px;
+}
+
+.field-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--hairline);
+  transition: border-color 160ms var(--ease);
+}
+
+.field-input::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out);
+}
+
+.field-input:focus-within::after {
+  transform: scaleX(1);
+}
+
+.field-input[data-invalid="true"]::after {
+  background: var(--ember);
+  transform: scaleX(1);
+}
+
+.field-input input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0;
+}
+
+.field-input input::placeholder {
+  color: color-mix(in srgb, var(--ink-muted) 70%, transparent);
+}
+
+.field-input input:focus-visible {
+  outline: none;
+}
+
+/* WebView2 adds its own reveal button; Tadween has a branded one. */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+.field-error {
+  color: var(--ember-text);
+  font-size: 13px;
+  min-height: 20px;
+}
+
+/* ── Menus and popovers ─────────────────────────────────────────────────── */
+
+.menu {
+  min-width: 220px;
+  padding: var(--space-1);
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-0);
+  z-index: 50;
+  animation: menu-in 140ms var(--ease-out);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  height: 32px;
+  padding: 0 var(--space-2);
+  font-size: 13.5px;
+  text-align: start;
+  color: var(--ink);
+}
+
+.menu-item svg {
+  color: var(--ink-muted);
+  flex: none;
+}
+
+.menu-item:hover,
+.menu-item[data-active="true"] {
+  background: var(--hover);
+}
+
+.menu-item.danger,
+.menu-item.danger svg {
+  color: var(--ember-text);
+}
+
+.menu-sep {
+  height: 1px;
+  margin: var(--space-1) calc(var(--space-1) * -1);
+  background: var(--hairline);
+}
+
+.menu-label {
+  padding: var(--space-2) var(--space-2) var(--space-1);
+}
+
+kbd {
+  font: 500 11px/1 var(--font-mono);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* An empty field has no text to take a direction from, so `dir="auto"` falls
+   back to left to right. Until something is typed it follows the layout. */
+html[dir="rtl"] input[dir="auto"]:placeholder-shown,
+html[dir="rtl"] textarea[dir="auto"]:placeholder-shown {
+  direction: rtl;
+}

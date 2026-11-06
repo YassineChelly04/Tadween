@@ -1,0 +1,586 @@
+/* Home: a terrace you arrive on. The scene is printed in flat inks, and the sky
+   chooses which inks from the hour. Text sits on the sky in the centre, so each
+   sky also sets the text colours for this one screen. */
+
+.home {
+  --s-sky: #F1E9DA;
+  --s-sky-line: #DDD1BB;
+  --s-cloud: #F8F2E7;
+  --s-far: #D5D2C9;
+  --s-far-line: #BFBCB1;
+  --s-sea: #BFC9DA;
+  --s-sea-line: #94A6C6;
+  --s-hill: #DDCFB4;
+  --s-hill-line: #C6B594;
+  --s-wall: #FBF8F2;
+  --s-shade: #E6DDCC;
+  --s-hatch: #A99C85;
+  --s-edge: #8A8070;
+  --s-door: #2B4190;
+  --s-window: #2B4190;
+  --s-flower: #C5512D;
+  --s-bloom: #FBF8F2;
+  --s-green: #7E8B58;
+  --s-green-deep: #55642F;
+  --s-leaf-light: #A8B27F;
+  --s-lamp: #F3E2B8;
+  --s-brass: #8C6A32;
+  --s-trunk: #6B5338;
+  --s-rock: #B8A584;
+  --s-terrace: #F4EFE6;
+  --s-ledge: #FBF8F2;
+  --s-tile: #1F2F7A;
+  --s-tile-field: #DDE1EF;
+  --s-pot: #B4623A;
+  --s-glass: #FBF8F2;
+  --s-tea: #B5782E;
+  --s-paper: #FBF8F2;
+  --s-sun: #E8501A;
+  --s-ink: #141210;
+  --s-star: transparent;
+  --c-paper: #FBF8F2;
+  --c-fold: #EAE3D6;
+  --c-line: #141210;
+  --c-rule: #D8D0C2;
+  --c-writing: #1F2F7A;
+  --c-drop: #141210;
+  --c-drop-edge: transparent;
+  --c-lapis: #1F2F7A;
+  --c-olive: #55642F;
+  --c-ember: #E8501A;
+  --c-light: #F4EFE6;
+  --c-z: #1F2F7A;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: var(--s-sky);
+}
+
+.home[data-sky="dawn"] {
+  --s-sky: #F4DFCB;
+  --s-sky-line: #EACFB6;
+  --s-cloud: #FAEBDD;
+  --s-terrace: #F7E8D8;
+  --s-tile-field: #EFD9C8;
+  --s-far: #D9BFB2;
+  --s-far-line: #C4A798;
+  --s-sea: #D4C5C8;
+  --s-sea-line: #BBA6B2;
+  --s-hill: #E2C7A8;
+  --s-hill-line: #CDAD8C;
+  --s-wall: #FBEDDD;
+  --s-shade: #E8CDB9;
+  --s-window: #2B4190;
+}
+
+.home[data-sky="dusk"] {
+  --s-sky: #EFC9A2;
+  --s-sky-line: #E3B68C;
+  --s-cloud: #F6DABC;
+  --s-far: #A98B8E;
+  --s-far-line: #957679;
+  --s-sea: #8F97B6;
+  --s-sea-line: #737CA2;
+  --s-hill: #C69D79;
+  --s-hill-line: #AE8461;
+  --s-wall: #F3D9BC;
+  --s-shade: #C8A187;
+  --s-hatch: #8D6C59;
+  --s-edge: #7A5B4B;
+  --s-door: #26336F;
+  --s-window: #F6C26B;
+  --s-green: #6A6F45;
+  --s-green-deep: #42492A;
+  --s-leaf-light: #8F9163;
+  --s-lamp: #F6C26B;
+  --s-brass: #5A3F27;
+  --s-terrace: #EFD5B7;
+  --s-ledge: #F6E2C9;
+  --s-tile-field: #E6C9B0;
+  --s-paper: #F8E8D4;
+  --ink: #1E1612;
+  --ink-muted: #5B4334;
+  --lapis: #1F2F7A;
+}
+
+/* The two dark prints share their text colours and a moonlit cast. */
+.home[data-sky="night"],
+.home[data-sky="deep"] {
+  --c-paper: #C4C8DC;
+  --c-fold: #9DA3C0;
+  --c-line: #10142C;
+  --c-rule: #A3A8C3;
+  --c-writing: #26398A;
+  --c-drop: #05070F;
+  --c-drop-edge: #6E769E;
+  --c-lapis: #2C409E;
+  --c-olive: #56663A;
+  --c-ember: #D0491A;
+  --c-z: #D9DDF0;
+  --paper: #141210;
+  --paper-raised: #1E1B18;
+  --ink: #F4EFE6;
+  --ink-muted: #B9BDD3;
+  --hairline: #38415F;
+  --lapis: #AEBEF7;
+  --hover: color-mix(in srgb, #F4EFE6 8%, transparent);
+}
+
+/* Dark mode: the same night, printed deeper. */
+.home[data-sky="deep"] {
+  --s-sky: #090B16;
+  --s-sky-line: #10132A;
+  --s-cloud: #0D1020;
+  --s-far: #11152A;
+  --s-far-line: #1B2140;
+  --s-sea: #070913;
+  --s-sea-line: #171D38;
+  --s-hill: #0F1224;
+  --s-hill-line: #181D38;
+  --s-wall: #1D2340;
+  --s-shade: #141933;
+  --s-hatch: #0C0F20;
+  --s-edge: #0C0F20;
+  --s-door: #10152E;
+  --s-window: #C9974F;
+  --s-flower: #4A2836;
+  --s-bloom: #5F6585;
+  --s-green: #1E2836;
+  --s-green-deep: #131B2C;
+  --s-leaf-light: #283442;
+  --s-lamp: #C9974F;
+  --s-brass: #1D2340;
+  --s-trunk: #12162A;
+  --s-rock: #0E1226;
+  --s-terrace: #11152C;
+  --s-ledge: #1A2040;
+  --s-tile: #3F4C80;
+  --s-tile-field: #161B36;
+  --s-pot: #2A2334;
+  --s-glass: #2A3355;
+  --s-tea: #43352A;
+  --s-paper: #2A3355;
+  --s-sun: #D8D6CF;
+  --s-ink: #5F6585;
+  --s-star: #9FA6C4;
+  --c-paper: #9CA0B8;
+  --c-fold: #7A7F9C;
+  --c-line: #0A0D1E;
+  --c-rule: #7F849F;
+  --c-writing: #1F2F75;
+  --c-drop-edge: #4E5578;
+  --c-lapis: #22337F;
+  --c-olive: #434F2E;
+  --c-ember: #A83C17;
+  --c-light: #D8D6CF;
+  --c-z: #9FA6C4;
+}
+
+.home[data-sky="night"] {
+  --s-sky: #111733;
+  --s-sky-line: #1B2347;
+  --s-cloud: #161D3D;
+  --s-far: #1C2549;
+  --s-far-line: #2A3560;
+  --s-sea: #0E1430;
+  --s-sea-line: #2A3768;
+  --s-hill: #1A2140;
+  --s-hill-line: #28315A;
+  --s-wall: #333D66;
+  --s-shade: #232C50;
+  --s-hatch: #161D3C;
+  --s-edge: #161D3C;
+  --s-door: #1B2347;
+  --s-window: #F6C26B;
+  --s-flower: #6E3A4C;
+  --s-bloom: #8D94B8;
+  --s-green: #2C3A4A;
+  --s-green-deep: #1C2740;
+  --s-leaf-light: #3A4A5C;
+  --s-lamp: #F6C26B;
+  --s-brass: #2A3358;
+  --s-trunk: #1A2036;
+  --s-rock: #161C38;
+  --s-terrace: #1D2545;
+  --s-ledge: #2A3358;
+  --s-tile: #5B6AA8;
+  --s-tile-field: #232C50;
+  --s-pot: #3A3048;
+  --s-glass: #3A4570;
+  --s-tea: #5E4A3A;
+  --s-paper: #3A4570;
+  --s-sun: #F4EFE6;
+  --s-ink: #8D94B8;
+  --s-star: #D9DDF0;
+}
+
+.home-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.home-sun {
+  fill: var(--s-sun);
+}
+
+.home-halo {
+  fill: var(--s-sun);
+  opacity: 0.08;
+}
+
+.home-glint {
+  stroke: var(--s-sun);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.42;
+}
+
+.home-star {
+  fill: var(--s-star);
+}
+
+.home-boat-hull {
+  fill: var(--s-door);
+}
+
+.home-boat-sail {
+  fill: var(--s-wall);
+  stroke: var(--s-edge);
+  stroke-width: 0.8;
+}
+
+/* The cast, looking over the wall. */
+.home-cast {
+  cursor: pointer;
+}
+
+.home-cast:focus-visible {
+  outline: none;
+}
+
+.home-cast:focus-visible .portrait {
+  outline: 2px solid var(--lapis);
+}
+
+.home-cast .ch-pupil,
+.home-cast .portrait-eyes .ch-dot {
+  transform: translate(var(--look-x, 0px), var(--look-y, 0px));
+}
+
+.home-cast .portrait-eyes {
+  animation-delay: var(--blink, 0s);
+}
+
+/* Their colours are their own, so they stay themselves on every sky. */
+.home-cast .ch-fill-lapis {
+  fill: var(--c-lapis);
+}
+
+.home-cast .ch-fill-ink {
+  fill: var(--c-drop);
+  stroke: var(--c-drop-edge);
+  stroke-width: 1.5;
+}
+
+.home-cast .ch-fill-olive {
+  fill: var(--c-olive);
+}
+
+.home-cast .ch-ember {
+  fill: var(--c-ember);
+}
+
+.home-cast .ch-fill-paper {
+  fill: var(--c-paper);
+  stroke: var(--c-line);
+}
+
+.home-cast .ch-fold {
+  fill: var(--c-fold);
+  stroke: var(--c-line);
+}
+
+.home-cast .ch-rule {
+  stroke: var(--c-rule);
+}
+
+.home-cast .ch-writing {
+  stroke: var(--c-writing);
+}
+
+.home-cast .ch-eye-white {
+  fill: var(--c-light);
+}
+
+.home-cast .ch-pupil,
+.home-cast .ch-dot {
+  fill: var(--c-line);
+}
+
+.home-cast .ch-stroke-light {
+  stroke: var(--c-light);
+}
+
+.home-cast .ch-stroke-dark {
+  stroke: var(--c-line);
+}
+
+.home-cast .ch-nib {
+  stroke: var(--c-light);
+}
+
+.home-cast .ch-rim {
+  stroke: color-mix(in srgb, var(--c-light) 35%, transparent);
+}
+
+/* Asleep: slow breath, and a z rising now and then. */
+.home-breath {
+  animation: home-breath 5.2s ease-in-out infinite;
+  animation-delay: var(--breath, 0s);
+}
+
+@keyframes home-breath {
+  50% {
+    transform: translateY(2.5px);
+  }
+}
+
+.home-z {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  fill: var(--c-z);
+  opacity: 0;
+  animation: home-z 6s linear infinite;
+}
+
+@keyframes home-z {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  15% {
+    opacity: 0.85;
+  }
+
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(22px, -58px);
+  }
+}
+
+/* The window buttons sit on a small notch of sky, so branches behind them never
+   get in the way, and they take the ink that reads on it. */
+:root[data-home-sky] .window-controls {
+  background: var(--chrome-sky);
+}
+
+:root[data-home-sky] .wc:not(:hover) {
+  color: var(--chrome-ink);
+}
+
+:root[data-home-sky] .wc:hover:not(.wc-close) {
+  background: var(--chrome-hover);
+  color: var(--chrome-ink);
+}
+
+:root[data-home-sky] {
+  --chrome-ink: #141210;
+  --chrome-sky: #F1E9DA;
+  --chrome-hover: rgb(20 18 16 / 10%);
+}
+
+:root[data-home-sky="dawn"] {
+  --chrome-sky: #F4DFCB;
+}
+
+:root[data-home-sky="dusk"] {
+  --chrome-sky: #EFC9A2;
+}
+
+:root[data-home-sky="night"] {
+  --chrome-ink: #F4EFE6;
+  --chrome-sky: #111733;
+  --chrome-hover: rgb(244 239 230 / 14%);
+}
+
+:root[data-home-sky="deep"] {
+  --chrome-ink: #F4EFE6;
+  --chrome-sky: #090B16;
+  --chrome-hover: rgb(244 239 230 / 14%);
+}
+
+/* The centre of the room: the words stand in the open sky. */
+.home-top {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 2;
+}
+
+.home-top .topbar {
+  background: transparent;
+  border-bottom: 0;
+}
+
+.home-talk {
+  position: absolute;
+  inset-block-start: clamp(44px, 8vh, 84px);
+  inset-inline: 0;
+  z-index: 1;
+  width: min(640px, calc(100% - 48px));
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1.2vh, 12px);
+  text-align: center;
+  color: var(--ink);
+}
+
+.home-clock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  direction: ltr;
+}
+
+.clock-face {
+  flex: none;
+  width: clamp(52px, 8vh, 72px);
+  height: clamp(52px, 8vh, 72px);
+  overflow: visible;
+}
+
+.clock-tick {
+  stroke: var(--ink-muted);
+  stroke-width: 1;
+}
+
+.clock-tick[data-hour="true"] {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.clock-hand {
+  stroke: var(--ink);
+  stroke-linecap: round;
+}
+
+.clock-pin {
+  fill: var(--ink);
+}
+
+.clock-second {
+  fill: var(--ember);
+  transition: transform 300ms var(--ease);
+  transform-origin: 50px 50px;
+}
+
+.clock-digits {
+  font: 500 clamp(36px, 6vh, 50px)/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.home-date {
+  margin: 2px 0 0;
+  color: var(--ink-muted);
+}
+
+.home-hello {
+  margin: clamp(4px, 1.4vh, 14px) 0 0;
+  font: 500 clamp(38px, 6.6vh, 56px)/1.06 var(--font-serif);
+  text-wrap: balance;
+}
+
+.home-hello:lang(ar) {
+  line-height: 1.3;
+}
+
+.home-warm {
+  margin: 0;
+  font: 400 clamp(19px, 2.7vh, 24px)/1.25 var(--font-serif);
+  color: var(--ink-muted);
+}
+
+.home-ask {
+  margin-block-start: clamp(4px, 1vh, 10px);
+  padding: 0 0 1px;
+  font: 500 clamp(21px, 3vh, 27px)/1.25 var(--font-serif);
+  color: var(--lapis);
+  border-bottom: 1px solid currentColor;
+}
+
+.home-ask:hover {
+  color: var(--ink);
+}
+
+.home-memory {
+  max-width: 52ch;
+  padding: 0;
+  color: var(--ink-muted);
+}
+
+.home-memory q {
+  display: block;
+  margin-top: 2px;
+  font: 400 19px/1.3 var(--font-serif);
+  color: var(--ink);
+  quotes: none;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.home-last {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.home-last b {
+  font-weight: 500;
+  color: var(--lapis);
+}
+
+.home-last:hover b {
+  color: var(--ink);
+}
+
+.home-say {
+  min-height: 1.3em;
+  margin: 0;
+  font: 400 18px/1.3 var(--font-serif);
+  color: var(--ink);
+}
+
+/* Short windows keep the hello and let the extras go. */
+@media (max-height: 640px) {
+  .home-memory,
+  .home-last {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clock-second {
+    transition: none;
+  }
+
+  .home-breath {
+    animation: none;
+  }
+
+  .home-z {
+    animation: none;
+    opacity: 0.6;
+  }
+}

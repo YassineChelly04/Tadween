@@ -1,0 +1,579 @@
+{
+  "app": {
+    "name": "Tadween",
+    "tagline": "Write in any language. Keep it to yourself."
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "window": {
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "restore": "Restore",
+    "close": "Close"
+  },
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "rename": "Rename",
+    "copy": "Copy",
+    "copied": "Copied",
+    "show": "Show password",
+    "hide": "Hide password",
+    "error": "Something went wrong. Try again.",
+    "crashTitle": "Something went wrong on this screen.",
+    "crashBody": "Your saved pages are safe. Reload to carry on.",
+    "reload": "Reload"
+  },
+  "onboarding": {
+    "step": "Step {{n}} of {{total}}",
+    "welcome": {
+      "body": "A quiet place to write, in Arabic, French or English. Everything stays on this computer, encrypted.",
+      "cta": "Get started"
+    },
+    "language": {
+      "title": "Choose your language",
+      "body": "This sets the language of the interface. You can write in any language, whatever you choose here."
+    },
+    "appearance": {
+      "title": "Choose a look",
+      "body": "White paper for bright rooms, warm paper, or ink at night. Or let Windows switch between light and night.",
+      "day": "Day",
+      "light": "Light",
+      "dark": "Night",
+      "system": "Automatic"
+    },
+    "privacy": {
+      "title": "Private by design",
+      "local": "Stays on this computer",
+      "localBody": "No account, no cloud, no tracking. Tadween never connects to the internet.",
+      "encrypted": "Encrypted at rest",
+      "encryptedBody": "Every page, title and folder is encrypted with XChaCha20-Poly1305 before it touches the disk.",
+      "key": "Only you hold the key",
+      "keyBody": "The key comes from your password through Argon2id. It lives in memory and is wiped when you lock."
+    },
+    "password": {
+      "title": "Create your account",
+      "body": "Your username and password unlock your notes. Only this computer knows them.",
+      "label": "Password",
+      "confirm": "Confirm password",
+      "ruleLength": "At least 8 characters",
+      "ruleVariety": "Two kinds of characters (letters, numbers, symbols), or 12+ characters",
+      "ruleRepeat": "Not a single repeated character",
+      "mismatch": "The passwords don't match.",
+      "strength": [
+        "Too weak",
+        "Too weak",
+        "Good",
+        "Strong",
+        "Excellent"
+      ],
+      "cta": "Create vault",
+      "creating": "Encrypting…",
+      "usernameHint": "2 to 40 characters. Any language.",
+      "taken": "This username already exists on this computer."
+    },
+    "recovery": {
+      "title": "Save your recovery key",
+      "body": "If you forget your password, this key is the only way back in. Nobody can reset it for you, not even Tadween.",
+      "confirm": "I saved my recovery key somewhere safe",
+      "hint": "Write it on paper or keep it in a password manager."
+    },
+    "done": {
+      "cta": "Start writing"
+    },
+    "name": {
+      "title": "What should we call you?",
+      "body": "This is how Tadween will greet you. You can change it any time in Settings."
+    },
+    "hello": {
+      "title": "Hello",
+      "body": "Meet the crew. Your notebook is ready."
+    }
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to open your notes.",
+    "password": "Password",
+    "unlock": "Unlock",
+    "unlocking": "Unlocking…",
+    "wrong": "Wrong username or password.",
+    "throttled": "Too many attempts. Try again in {{s}} s.",
+    "idle": "Locked after inactivity.",
+    "forgot": "Forgot your password?",
+    "local": "Encrypted on this device",
+    "recoveryTitle": "Use your recovery key",
+    "recoverySubtitle": "Enter your username and the key you saved, then choose a new password.",
+    "recoveryKey": "Recovery key",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "recoverySubmit": "Reset and unlock",
+    "backToPassword": "Back to password",
+    "wrongKey": "That recovery key is not right.",
+    "unreadable_one": "{{count}} page could not be decrypted and was skipped.",
+    "unreadable_other": "{{count}} pages could not be decrypted and were skipped.",
+    "capsLock": "Caps Lock is on.",
+    "username": "Username",
+    "newAccount": "Create an account",
+    "playHint": "Drag the dot. Click the others.",
+    "forgetUsername": "Forget"
+  },
+  "sidebar": {
+    "search": "Search",
+    "newPage": "New page",
+    "pinned": "Pinned",
+    "folders": "Folders",
+    "trash": "Trash",
+    "settings": "Settings",
+    "lock": "Lock",
+    "newFolder": "New folder",
+    "folderName": "Folder name",
+    "newPageIn": "New page in folder",
+    "emptyFolder": "No pages inside",
+    "noPages": "No pages yet",
+    "collapse": "Hide sidebar",
+    "expand": "Show sidebar",
+    "deleteFolder": "Delete “{{name}}”? Its pages stay, without a folder.",
+    "recent": "Recent",
+    "showAll": "Show all {{count}}",
+    "allPages": "All pages ({{count}})",
+    "noPinnedFolders": "Pin folders from All pages.",
+    "unpinFolder": "Unpin from sidebar",
+    "showInPages": "Show in All pages"
+  },
+  "page": {
+    "untitled": "Untitled",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "moveTo": "Move to",
+    "noFolder": "Pages (no folder)",
+    "duplicate": "Duplicate",
+    "trash": "Move to trash",
+    "restore": "Restore",
+    "deleteForever": "Delete forever",
+    "deleteConfirm": "Delete this page forever? This cannot be undone.",
+    "inTrash": "This page is in the trash.",
+    "saving": "Saving",
+    "saved": "Saved",
+    "edited": "Edited {{time}}",
+    "words_one": "{{count}} word",
+    "words_other": "{{count}} words",
+    "more": "More actions",
+    "addInside": "Add a page inside",
+    "moveOut": "Move out of this page",
+    "inside": "In this page",
+    "cannotNest": "A page can't go inside itself.",
+    "deleted": "This page no longer exists",
+    "inTrashShort": "In the trash",
+    "notFound": "This page no longer exists.",
+    "saveFailed": "This page could not be saved. Your text is still here; keep the page open and try again.",
+    "tooLarge": "This page is too large to save. Remove an image or move part of it to another page.",
+    "notSaved": "Not saved"
+  },
+  "trash": {
+    "title": "Trash",
+    "empty": "Empty trash",
+    "emptyConfirm_one": "Delete {{count}} page forever? This cannot be undone.",
+    "emptyConfirm_other": "Delete {{count}} pages forever? This cannot be undone.",
+    "nothing": "Trash is empty.",
+    "trashed": "Trashed {{time}}"
+  },
+  "find": {
+    "placeholder": "Search your pages",
+    "noResults": "No results for “{{q}}”",
+    "recent": "Recent",
+    "results": "Results",
+    "open": "Open",
+    "navigate": "Move"
+  },
+  "settings": {
+    "backdrop": "Login background",
+    "backdropHint": "Shown behind the cast while Tadween is locked. Each one is drawn for Day, Light and Night.",
+    "backdrops": {
+      "mark": "The mark",
+      "lines": "Copybook",
+      "sky": "Sky",
+      "arches": "Arches",
+      "dunes": "Dunes",
+      "zellige": "Zellige",
+      "medina": "Medina",
+      "door": "Door"
+    },
+    "title": "Settings",
+    "general": "General",
+    "security": "Security",
+    "about": "About",
+    "language": "Language",
+    "languageHint": "Arabic turns the whole app right to left. Your writing always follows its own direction.",
+    "theme": "Appearance",
+    "autoLock": "Lock after inactivity",
+    "minutes_one": "{{count}} minute",
+    "minutes_other": "{{count}} minutes",
+    "never": "Never",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "passwordChanged": "Password changed.",
+    "version": "Version {{v}}",
+    "storage": "Your notes live in the app data folder, encrypted. Tadween has no network access.",
+    "shortcuts": "Keyboard shortcuts",
+    "recoveryKey": "Recovery key",
+    "recoveryHint": "Lost your recovery key? Create a new one. The old key stops working right away.",
+    "newRecoveryKey": "Create a new recovery key",
+    "transfer": "Import & export",
+    "developedBy": "Developed by",
+    "yourName": "Your name",
+    "yourNameHint": "How Tadween greets you. Your username ({{username}}) stays the same.",
+    "nameSaved": "Name saved.",
+    "deleteAccount": "Delete account",
+    "deleteAccountHint": "Erases this account and everything in it from this computer: pages, files, folders and settings. Other accounts are not touched. Nobody can bring it back, so export what you want to keep first.",
+    "deleteAccountConfirm": "Delete the account “{{username}}” and all of its pages for good? This cannot be undone.",
+    "deleteAccountButton": "Delete my account",
+    "accountDeleted": "Account deleted."
+  },
+  "shortcuts": {
+    "newPage": "New page",
+    "find": "Search",
+    "lock": "Lock",
+    "sidebar": "Toggle sidebar",
+    "slash": "Insert a block",
+    "bold": "Bold",
+    "italic": "Italic",
+    "dictate": "Dictate"
+  },
+  "editor": {
+    "titlePlaceholder": "Untitled",
+    "placeholder": "Write, or type “/” for blocks",
+    "toggle": "Toggle",
+    "drag": "Drag to move",
+    "add": "Click to add a block below",
+    "linkPlaceholder": "Paste or type a link",
+    "removeLink": "Remove link",
+    "turnInto": "Turn into",
+    "groups": {
+      "basic": "Basic blocks",
+      "lists": "Lists",
+      "media": "Media and structure",
+      "layout": "Layout"
+    },
+    "noResults": "No matching blocks",
+    "blocks": {
+      "text": [
+        "Text",
+        "Plain writing"
+      ],
+      "h1": [
+        "Heading 1",
+        "Big section title"
+      ],
+      "h2": [
+        "Heading 2",
+        "Medium section title"
+      ],
+      "h3": [
+        "Heading 3",
+        "Small section title"
+      ],
+      "bullet": [
+        "Bulleted list",
+        "A simple list"
+      ],
+      "numbered": [
+        "Numbered list",
+        "A list with numbers"
+      ],
+      "todo": [
+        "To-do list",
+        "Track tasks"
+      ],
+      "toggle": [
+        "Toggle list",
+        "Hide content inside"
+      ],
+      "quote": [
+        "Quote",
+        "Set a quotation apart"
+      ],
+      "callout": [
+        "Callout",
+        "Make a note stand out"
+      ],
+      "divider": [
+        "Divider",
+        "A hairline between sections"
+      ],
+      "code": [
+        "Code",
+        "Monospace block"
+      ],
+      "table": [
+        "Table",
+        "Rows and columns"
+      ],
+      "image": [
+        "Image",
+        "From your computer"
+      ],
+      "pdf": [
+        "PDF",
+        "Embed a PDF file"
+      ],
+      "columns2": [
+        "2 columns",
+        "Split the page in two"
+      ],
+      "columns3": [
+        "3 columns",
+        "Three side by side"
+      ],
+      "columns4": [
+        "4 columns",
+        "Four side by side"
+      ],
+      "page": [
+        "Page",
+        "A page inside this page"
+      ],
+      "dictate": [
+        "Dictate",
+        "Speak and it writes"
+      ]
+    },
+    "marks": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "strike": "Strikethrough",
+      "code": "Inline code",
+      "link": "Link",
+      "highlight": "Highlight"
+    },
+    "imageTooLarge": "Images must be under 10 MB.",
+    "pdfHide": "Hide preview",
+    "pdfShow": "Show preview",
+    "pdfMissing": "This file could not be read.",
+    "fileTooLarge": "That file is too large.",
+    "cannotTurn": "That selection can't be turned into this block.",
+    "chooseImage": "Choose an image…",
+    "chooseImageHint": "Or paste one, or drop it onto the page.",
+    "choosePdf": "Choose a PDF…",
+    "choosePdfHint": "It is stored encrypted with the page.",
+    "openLink": "Open link",
+    "linkHint": "Ctrl + click to open",
+    "heading1": "Heading 1",
+    "heading2": "Heading 2",
+    "heading3": "Heading 3"
+  },
+  "home": {
+    "title": "Home",
+    "hello": {
+      "morning": "Good morning, {{name}}",
+      "afternoon": "Good afternoon, {{name}}",
+      "evening": "Good evening, {{name}}",
+      "night": "Still awake, {{name}}?",
+      "away": "Welcome back, {{name}}"
+    },
+    "warm": {
+      "morning": "The notebook is open. Take your time.",
+      "afternoon": "Nothing is waiting for you here.",
+      "evening": "It's good to see you.",
+      "night": "The others are asleep. Nobody reads this but you.",
+      "away": "It's been a while. Everything is where you left it."
+    },
+    "ask": {
+      "morning": "What's on your mind this morning?",
+      "afternoon": "How is your day going?",
+      "evening": "How was your day?",
+      "night": "What's keeping you up?",
+      "away": "What happened while you were away?"
+    },
+    "askMore": "You wrote today. Add something?",
+    "ago": {
+      "week": "A week ago",
+      "month": "A month ago",
+      "year": "A year ago"
+    },
+    "cast": {
+      "qalam": "I'm Qalam. I write the first line if you can't.",
+      "waraqa": "I'm Waraqa. I keep every page you give me.",
+      "hibr": "I'm Hibr. Everything here stays between us.",
+      "noon": "I'm Noon. I hold the dot, and today's date.",
+      "nuqta": "I'm Nuqta. I lock the door when you leave.",
+      "asleep": "Shh. They are sleeping."
+    },
+    "openJournal": "Open today's journal",
+    "writeJournal": "Write today's journal",
+    "folders": "Folders",
+    "streak": "Journal streak",
+    "days_one": "day",
+    "days_other": "days",
+    "filter": "Filter pages",
+    "all": "All",
+    "unfiled": "No folder",
+    "selected_one": "{{count}} selected",
+    "selected_other": "{{count}} selected",
+    "empty": "No pages here yet.",
+    "figCaption": "Fig. 01 · Journal, last 30 days",
+    "layoutSheets": "Sheets",
+    "tagJournal": "Journal",
+    "upcoming": "Coming up",
+    "yesterday": "Yesterday",
+    "thisWeek": "This week",
+    "continue": "Continue",
+    "continueWriting": "Continue writing",
+    "timeline": "Timeline",
+    "byEdited": "By last edit",
+    "byDate": "By date",
+    "contents": "Contents",
+    "expand": "Open",
+    "collapse": "Close",
+    "pinFolder": "Pin to sidebar",
+    "unpinFolder": "Unpin from sidebar",
+    "allInFolder": "All {{count}} pages →",
+    "pinHint": "Pin a folder to keep it in the sidebar."
+  },
+  "properties": {
+    "date": "Date",
+    "journal": "Daily journal",
+    "journalOn": "This is a journal entry",
+    "journalOff": "Not a journal entry",
+    "folder": "Folder",
+    "empty": "Empty",
+    "clear": "Clear"
+  },
+  "pages": {
+    "title": "All pages"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "previous": "Previous month",
+    "next": "Next month",
+    "today": "Today",
+    "thisMonth": "Journaled this month",
+    "written": "Journal written",
+    "notWritten": "No journal",
+    "otherPages": "Other pages",
+    "selected": "Selected day",
+    "emptyEntry": "Empty entry",
+    "writeFor": "Write the journal for this day",
+    "pagesThatDay_one": "{{count}} other page",
+    "pagesThatDay_other": "{{count}} other pages",
+    "none": "Nothing else that day.",
+    "newOnDay": "New page on this day",
+    "pages": "Pages",
+    "words": "Words",
+    "notebookDay": "Notebook day"
+  },
+  "table": {
+    "rowAbove": "Insert row above",
+    "rowBelow": "Insert row below",
+    "colLeft": "Insert column left",
+    "colRight": "Insert column right",
+    "header": "Toggle header row",
+    "merge": "Merge cells",
+    "split": "Split cell",
+    "deleteRow": "Delete row",
+    "deleteCol": "Delete column",
+    "delete": "Delete table",
+    "addRow": "Add a row",
+    "addCol": "Add a column"
+  },
+  "transfer": {
+    "exportTitle": "Export",
+    "exportBody": "Every page as Markdown with its images and PDFs, plus a complete Tadween backup, in one zip file. The export is not encrypted: keep it somewhere safe.",
+    "exportButton": "Export all pages",
+    "working": "Working…",
+    "exported_one": "{{count}} page exported.",
+    "exported_other": "{{count}} pages exported.",
+    "failed": "That did not work. Nothing was changed.",
+    "importTitle": "Import",
+    "importBody": "Bring your notes from another app. Folders, dates, images and PDFs come along.",
+    "obsidian": "Obsidian",
+    "obsidianHint": "Choose your vault folder",
+    "notion": "Notion",
+    "notionHint": "Choose the exported .zip (Markdown or HTML). Databases come in as tables.",
+    "markdown": "Markdown folder",
+    "markdownHint": ".md, .txt and .html files",
+    "backup": "Tadween backup",
+    "backupHint": "A .zip exported from Tadween",
+    "imported_one": "{{count}} page imported.",
+    "imported_other": "{{count}} pages imported.",
+    "spreadsheet": "Spreadsheet",
+    "spreadsheetHint": ".csv, .xlsx or .xls: each sheet becomes a page with a table",
+    "exportedMissing_one": "{{count}} file could not be read and was left out.",
+    "exportedMissing_other": "{{count}} files could not be read and were left out."
+  },
+  "tour": {
+    "label": "Tour",
+    "skip": "Skip tutorial",
+    "next": "Next",
+    "done": "Start writing",
+    "gotIt": "Got it",
+    "roles": {
+      "qalam": "The pen",
+      "waraqa": "The page",
+      "hibr": "The ink",
+      "noon": "The bowl",
+      "nuqta": "The dot"
+    },
+    "home": {
+      "qalam": "I write the first line. Press New page, or Ctrl N, and just start. Type / for headings, lists, tables, columns and more.",
+      "waraqa": "All your pages live here, on a timeline with your folders beside it. Drag a page onto a folder to file it, or right-click it for more.",
+      "hibr": "Lost something? Search with Ctrl K. I find any page, in Arabic or Latin, with or without diacritics.",
+      "noon": "Keep a daily journal. Each day you write fills a dot on the Calendar. Try not to break the line.",
+      "nuqta": "Everything stays on this computer, encrypted with your password. Press Lock, or Ctrl L, when you step away."
+    },
+    "settings": {
+      "waraqa": "This is the name I greet you with. Change it whenever you like; your username stays the same.",
+      "noon": "Pick the language of the app. In Arabic the whole app turns right to left; your writing always follows its own direction.",
+      "nuqta": "Security lives here: when to lock, your password, and a new recovery key if you lose yours.",
+      "hibr": "Coming from Obsidian or Notion? Bring everything in here. You can export all your pages too."
+    },
+    "page": {
+      "qalam": "Every page starts with a title. Press Enter to jump into the text.",
+      "hibr": "Type / to add a heading, list, table, PDF, columns or a page inside this page. Select words to bold, link or highlight them. Hover a line and drag the handle to move it.",
+      "noon": "Give the page a date, tick Daily journal to make it a diary entry, or file it in a folder.",
+      "nuqta": "No save button: I save and encrypt every word as you type. Pin or move the page from up here.",
+      "waraqa": "Prefer to speak? Press Dictate down here, choose the language you speak, and I write as you talk. Everything stays on this computer."
+    }
+  },
+  "icons": {
+    "title": "Page icon",
+    "add": "Add icon",
+    "change": "Change icon",
+    "filter": "Filter icons",
+    "remove": "Remove",
+    "colour": "Colour",
+    "count": "{{count}} icons",
+    "colours": {
+      "ink": "Ink",
+      "graphite": "Graphite",
+      "lapis": "Lapis",
+      "sea": "Sea",
+      "ember": "Ember",
+      "brick": "Brick",
+      "olive": "Olive",
+      "sand": "Sand"
+    }
+  },
+  "dictation": {
+    "title": "Dictation",
+    "start": "Dictate",
+    "stop": "Stop",
+    "preparing": "Preparing the model",
+    "listening": "Listening",
+    "writing": "Writing",
+    "finishing": "Finishing",
+    "noMicrophone": "No microphone found. Plug one in or allow Tadween in Windows privacy settings.",
+    "noModel": "The speech model is missing. Reinstall Tadween to restore it.",
+    "failed": "Dictation stopped unexpectedly.",
+    "credits": "Dictation runs on this computer: NVIDIA FastConformer Arabic and Canary 180m Flash (CC BY 4.0), Silero VAD (MIT) and sherpa-onnx (Apache 2.0). Your voice is never recorded or sent anywhere.",
+    "language": "Language you speak"
+  }
+}

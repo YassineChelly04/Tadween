@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tadween installer art</title>
+<!-- Source for the installer bitmaps (rendered at 2x by brand/installer/render.mjs). -->
+<style>
+  @font-face { font-family: "Readex Pro"; font-weight: 500; src: url("../../node_modules/@fontsource/readex-pro/files/readex-pro-latin-500-normal.woff2"); }
+  @font-face { font-family: "Readex Pro"; font-weight: 300; src: url("../../node_modules/@fontsource/readex-pro/files/readex-pro-latin-300-normal.woff2"); }
+  @font-face { font-family: "Markazi Text"; font-weight: 500; src: url("../../node_modules/@fontsource/markazi-text/files/markazi-text-arabic-500-normal.woff2"); unicode-range: U+0600-06FF; }
+  @font-face { font-family: "Markazi Text"; font-weight: 500; src: url("../../node_modules/@fontsource/markazi-text/files/markazi-text-latin-500-normal.woff2"); }
+  @font-face { font-family: "JetBrains Mono"; font-weight: 500; src: url("../../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2"); }
+
+  :root { --paper: #F4EFE6; --ink: #141210; --lapis: #1F2F7A; --ember: #E8501A; --hairline: #D8D0C2; --muted: #5E574F; }
+  html, body { margin: 0; background: #888; }
+  .art { position: relative; overflow: hidden; }
+
+  /* Welcome / finish sidebar: 164 x 314, drawn at 2x. */
+  #sidebar { width: 328px; height: 628px; background: var(--lapis); color: var(--paper); }
+  #sidebar .super { position: absolute; right: -150px; top: 150px; width: 470px; }
+  #sidebar .super g { stroke: #2C40A3; }
+  #sidebar .super circle { fill: #2C40A3; }
+  #sidebar .top { position: absolute; left: 30px; top: 34px; display: flex; align-items: center; gap: 14px; }
+  #sidebar .name { font: 500 30px/1 "Readex Pro"; letter-spacing: -0.005em; }
+  #sidebar .arabic { position: absolute; left: 30px; bottom: 120px; font: 500 88px/1 "Markazi Text"; }
+  #sidebar .strip { position: absolute; left: 30px; right: 30px; bottom: 34px; padding-top: 14px; border-top: 2px solid rgba(244,239,230,0.35);
+    display: flex; justify-content: space-between; font: 500 17px/1 "JetBrains Mono"; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,230,0.75); }
+
+  /* Header: 150 x 57, drawn at 2x. Sits on the right of the paper header band. */
+  #header { width: 300px; height: 114px; background: var(--paper); display: flex; align-items: center; justify-content: flex-end; gap: 14px; padding-right: 26px; box-sizing: border-box; }
+  #header .name { font: 500 30px/1 "Readex Pro"; color: var(--ink); }
+</style>
+</head>
+<body>
+  <div class="art" id="sidebar">
+    <svg class="super" viewBox="0 0 64 64" aria-hidden="true">
+      <g fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 14 H14" /><path d="M50 26 H26" /><path d="M50 36 C50 47.5 42 54 32 54 C22 54 14 47.5 14 38" />
+      </g>
+      <circle cx="32" cy="35.5" r="3.6" />
+    </svg>
+    <div class="top">
+      <svg width="52" height="52" viewBox="0 0 64 64">
+        <g fill="none" stroke="#F4EFE6" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M50 14 H14" /><path d="M50 26 H26" /><path d="M50 36 C50 47.5 42 54 32 54 C22 54 14 47.5 14 38" />
+        </g>
+        <circle cx="32" cy="35.5" r="3.6" fill="#FF7A45" />
+      </svg>
+      <span class="name">Tadween</span>
+    </div>
+    <div class="arabic" lang="ar">تدوين</div>
+    <div class="strip"><span>Version 2.0</span><span>Encrypted</span></div>
+  </div>
+
+  <div class="art" id="header">
+    <svg width="46" height="46" viewBox="0 0 64 64">
+      <g fill="none" stroke="#141210" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 14 H14" /><path d="M50 26 H26" /><path d="M50 36 C50 47.5 42 54 32 54 C22 54 14 47.5 14 38" />
+      </g>
+      <circle cx="32" cy="35.5" r="3.6" fill="#E8501A" />
+    </svg>
+    <span class="name">Tadween</span>
+  </div>
+</body>
+</html>

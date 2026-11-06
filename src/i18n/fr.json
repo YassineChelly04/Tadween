@@ -1,0 +1,579 @@
+{
+  "app": {
+    "name": "Tadween",
+    "tagline": "Écrivez dans toutes les langues. Gardez-le pour vous."
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "window": {
+    "minimize": "Réduire",
+    "maximize": "Agrandir",
+    "restore": "Restaurer",
+    "close": "Fermer"
+  },
+  "common": {
+    "continue": "Continuer",
+    "back": "Retour",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "rename": "Renommer",
+    "copy": "Copier",
+    "copied": "Copié",
+    "show": "Afficher le mot de passe",
+    "hide": "Masquer le mot de passe",
+    "error": "Une erreur est survenue. Réessayez.",
+    "crashTitle": "Un problème est survenu sur cet écran.",
+    "crashBody": "Vos pages enregistrées sont en sécurité. Rechargez pour continuer.",
+    "reload": "Recharger"
+  },
+  "onboarding": {
+    "step": "Étape {{n}} sur {{total}}",
+    "welcome": {
+      "body": "Un endroit calme pour écrire, en arabe, en français ou en anglais. Tout reste sur cet ordinateur, chiffré.",
+      "cta": "Commencer"
+    },
+    "language": {
+      "title": "Choisissez votre langue",
+      "body": "Elle définit la langue de l’interface. Vous pouvez écrire dans n’importe quelle langue, quel que soit votre choix."
+    },
+    "appearance": {
+      "title": "Choisissez un style",
+      "body": "Papier blanc pour les pièces lumineuses, papier chaud, ou encre la nuit. Ou laissez Windows passer de clair à nuit.",
+      "day": "Jour",
+      "light": "Clair",
+      "dark": "Nuit",
+      "system": "Automatique"
+    },
+    "privacy": {
+      "title": "Confidentiel par conception",
+      "local": "Reste sur cet ordinateur",
+      "localBody": "Pas de compte, pas de cloud, pas de pistage. Tadween ne se connecte jamais à Internet.",
+      "encrypted": "Chiffré sur le disque",
+      "encryptedBody": "Chaque page, titre et dossier est chiffré avec XChaCha20-Poly1305 avant d’être écrit sur le disque.",
+      "key": "Vous seul détenez la clé",
+      "keyBody": "La clé est dérivée de votre mot de passe avec Argon2id. Elle reste en mémoire et s’efface au verrouillage."
+    },
+    "password": {
+      "title": "Créez votre compte",
+      "body": "Votre nom d'utilisateur et votre mot de passe déverrouillent vos notes. Seul cet ordinateur les connaît.",
+      "label": "Mot de passe",
+      "confirm": "Confirmez le mot de passe",
+      "ruleLength": "Au moins 8 caractères",
+      "ruleVariety": "Deux types de caractères (lettres, chiffres, symboles), ou 12 caractères et plus",
+      "ruleRepeat": "Pas un seul caractère répété",
+      "mismatch": "Les mots de passe ne correspondent pas.",
+      "strength": [
+        "Trop faible",
+        "Trop faible",
+        "Correct",
+        "Solide",
+        "Excellent"
+      ],
+      "cta": "Créer le coffre",
+      "creating": "Chiffrement…",
+      "usernameHint": "De 2 à 40 caractères. Dans n’importe quelle langue.",
+      "taken": "Ce nom d'utilisateur existe déjà sur cet ordinateur."
+    },
+    "recovery": {
+      "title": "Conservez votre clé de récupération",
+      "body": "Si vous oubliez votre mot de passe, cette clé est le seul moyen de revenir. Personne ne peut la réinitialiser, pas même Tadween.",
+      "confirm": "J’ai conservé ma clé de récupération en lieu sûr",
+      "hint": "Notez-la sur papier ou gardez-la dans un gestionnaire de mots de passe."
+    },
+    "done": {
+      "cta": "Commencer à écrire"
+    },
+    "name": {
+      "title": "Comment doit-on vous appeler ?",
+      "body": "C’est ainsi que Tadween vous saluera. Vous pourrez le changer à tout moment dans les réglages."
+    },
+    "hello": {
+      "title": "Bonjour",
+      "body": "Voici l’équipe. Votre carnet est prêt."
+    }
+  },
+  "login": {
+    "title": "Bon retour",
+    "subtitle": "Connectez-vous pour ouvrir vos notes.",
+    "password": "Mot de passe",
+    "unlock": "Déverrouiller",
+    "unlocking": "Déverrouillage…",
+    "wrong": "Nom d'utilisateur ou mot de passe incorrect.",
+    "throttled": "Trop de tentatives. Réessayez dans {{s}} s.",
+    "idle": "Verrouillé après inactivité.",
+    "forgot": "Mot de passe oublié ?",
+    "local": "Chiffré sur cet appareil",
+    "recoveryTitle": "Utilisez votre clé de récupération",
+    "recoverySubtitle": "Saisissez votre nom d'utilisateur et la clé conservée, puis choisissez un nouveau mot de passe.",
+    "recoveryKey": "Clé de récupération",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmez le nouveau mot de passe",
+    "recoverySubmit": "Réinitialiser et déverrouiller",
+    "backToPassword": "Retour au mot de passe",
+    "wrongKey": "Cette clé de récupération n’est pas la bonne.",
+    "unreadable_one": "{{count}} page n’a pas pu être déchiffrée et a été ignorée.",
+    "unreadable_other": "{{count}} pages n’ont pas pu être déchiffrées et ont été ignorées.",
+    "capsLock": "Verr. Maj. est activé.",
+    "username": "Nom d'utilisateur",
+    "newAccount": "Créer un compte",
+    "playHint": "Faites glisser le point. Cliquez sur les autres.",
+    "forgetUsername": "Oublier"
+  },
+  "sidebar": {
+    "search": "Rechercher",
+    "newPage": "Nouvelle page",
+    "pinned": "Épinglées",
+    "folders": "Dossiers",
+    "trash": "Corbeille",
+    "settings": "Réglages",
+    "lock": "Verrouiller",
+    "newFolder": "Nouveau dossier",
+    "folderName": "Nom du dossier",
+    "newPageIn": "Nouvelle page dans le dossier",
+    "emptyFolder": "Aucune page",
+    "noPages": "Aucune page pour l’instant",
+    "collapse": "Masquer la barre latérale",
+    "expand": "Afficher la barre latérale",
+    "deleteFolder": "Supprimer « {{name}} » ? Ses pages restent, sans dossier.",
+    "recent": "Récentes",
+    "showAll": "Tout afficher ({{count}})",
+    "allPages": "Toutes les pages ({{count}})",
+    "noPinnedFolders": "Épinglez des dossiers depuis Toutes les pages.",
+    "unpinFolder": "Retirer de la barre latérale",
+    "showInPages": "Afficher dans Toutes les pages"
+  },
+  "page": {
+    "untitled": "Sans titre",
+    "pin": "Épingler",
+    "unpin": "Désépingler",
+    "moveTo": "Déplacer vers",
+    "noFolder": "Pages (sans dossier)",
+    "duplicate": "Dupliquer",
+    "trash": "Mettre à la corbeille",
+    "restore": "Restaurer",
+    "deleteForever": "Supprimer définitivement",
+    "deleteConfirm": "Supprimer cette page définitivement ? C’est irréversible.",
+    "inTrash": "Cette page est dans la corbeille.",
+    "saving": "Enregistrement",
+    "saved": "Enregistré",
+    "edited": "Modifié {{time}}",
+    "words_one": "{{count}} mot",
+    "words_other": "{{count}} mots",
+    "more": "Plus d’actions",
+    "addInside": "Ajouter une page dedans",
+    "moveOut": "Sortir de cette page",
+    "inside": "Dans cette page",
+    "cannotNest": "Une page ne peut pas aller dans elle-même.",
+    "deleted": "Cette page n'existe plus",
+    "inTrashShort": "Dans la corbeille",
+    "notFound": "Cette page n'existe plus.",
+    "saveFailed": "Cette page n'a pas pu être enregistrée. Votre texte est toujours là : gardez la page ouverte et réessayez.",
+    "tooLarge": "Cette page est trop volumineuse pour être enregistrée. Retirez une image ou déplacez-en une partie vers une autre page.",
+    "notSaved": "Non enregistré"
+  },
+  "trash": {
+    "title": "Corbeille",
+    "empty": "Vider la corbeille",
+    "emptyConfirm_one": "Supprimer {{count}} page définitivement ? C’est irréversible.",
+    "emptyConfirm_other": "Supprimer {{count}} pages définitivement ? C’est irréversible.",
+    "nothing": "La corbeille est vide.",
+    "trashed": "Supprimée {{time}}"
+  },
+  "find": {
+    "placeholder": "Rechercher dans vos pages",
+    "noResults": "Aucun résultat pour « {{q}} »",
+    "recent": "Récentes",
+    "results": "Résultats",
+    "open": "Ouvrir",
+    "navigate": "Naviguer"
+  },
+  "settings": {
+    "backdrop": "Fond de connexion",
+    "backdropHint": "Affiché derrière les personnages quand Tadween est verrouillé. Chacun est dessiné pour Jour, Clair et Nuit.",
+    "backdrops": {
+      "mark": "Le signe",
+      "lines": "Cahier",
+      "sky": "Ciel",
+      "arches": "Arcades",
+      "dunes": "Dunes",
+      "zellige": "Zellige",
+      "medina": "Médina",
+      "door": "Porte"
+    },
+    "title": "Réglages",
+    "general": "Général",
+    "security": "Sécurité",
+    "about": "À propos",
+    "language": "Langue",
+    "languageHint": "En arabe, toute l'application passe de droite à gauche. Votre écriture suit toujours son propre sens.",
+    "theme": "Apparence",
+    "autoLock": "Verrouiller après inactivité",
+    "minutes_one": "{{count}} minute",
+    "minutes_other": "{{count}} minutes",
+    "never": "Jamais",
+    "changePassword": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmez le nouveau mot de passe",
+    "passwordChanged": "Mot de passe modifié.",
+    "version": "Version {{v}}",
+    "storage": "Vos notes sont chiffrées dans le dossier de données de l’application. Tadween n’a aucun accès réseau.",
+    "shortcuts": "Raccourcis clavier",
+    "recoveryKey": "Clé de récupération",
+    "recoveryHint": "Clé de récupération perdue ? Créez-en une nouvelle. L’ancienne cesse aussitôt de fonctionner.",
+    "newRecoveryKey": "Créer une nouvelle clé de récupération",
+    "transfer": "Import et export",
+    "developedBy": "Développé par",
+    "yourName": "Votre nom",
+    "yourNameHint": "La façon dont Tadween vous salue. Votre nom d’utilisateur ({{username}}) ne change pas.",
+    "nameSaved": "Nom enregistré.",
+    "deleteAccount": "Supprimer le compte",
+    "deleteAccountHint": "Efface de cet ordinateur ce compte et tout ce qu'il contient : pages, fichiers, dossiers et réglages. Les autres comptes ne sont pas touchés. Personne ne pourra le récupérer : exportez d'abord ce que vous voulez garder.",
+    "deleteAccountConfirm": "Supprimer définitivement le compte « {{username}} » et toutes ses pages ? Cette action est irréversible.",
+    "deleteAccountButton": "Supprimer mon compte",
+    "accountDeleted": "Compte supprimé."
+  },
+  "shortcuts": {
+    "newPage": "Nouvelle page",
+    "find": "Rechercher",
+    "lock": "Verrouiller",
+    "sidebar": "Afficher ou masquer la barre latérale",
+    "slash": "Insérer un bloc",
+    "bold": "Gras",
+    "italic": "Italique",
+    "dictate": "Dicter"
+  },
+  "editor": {
+    "titlePlaceholder": "Sans titre",
+    "placeholder": "Écrivez, ou tapez « / » pour les blocs",
+    "toggle": "Bascule",
+    "drag": "Glisser pour déplacer",
+    "add": "Cliquer pour ajouter un bloc dessous",
+    "linkPlaceholder": "Collez ou saisissez un lien",
+    "removeLink": "Retirer le lien",
+    "turnInto": "Transformer en",
+    "groups": {
+      "basic": "Blocs de base",
+      "lists": "Listes",
+      "media": "Médias et structure",
+      "layout": "Mise en page"
+    },
+    "noResults": "Aucun bloc correspondant",
+    "blocks": {
+      "text": [
+        "Texte",
+        "Écriture simple"
+      ],
+      "h1": [
+        "Titre 1",
+        "Grand titre de section"
+      ],
+      "h2": [
+        "Titre 2",
+        "Titre de section moyen"
+      ],
+      "h3": [
+        "Titre 3",
+        "Petit titre de section"
+      ],
+      "bullet": [
+        "Liste à puces",
+        "Une liste simple"
+      ],
+      "numbered": [
+        "Liste numérotée",
+        "Une liste avec des numéros"
+      ],
+      "todo": [
+        "Liste de tâches",
+        "Suivre des tâches"
+      ],
+      "toggle": [
+        "Liste dépliable",
+        "Masquer du contenu"
+      ],
+      "quote": [
+        "Citation",
+        "Mettre une citation à part"
+      ],
+      "callout": [
+        "Encadré",
+        "Faire ressortir une note"
+      ],
+      "divider": [
+        "Séparateur",
+        "Un filet entre deux sections"
+      ],
+      "code": [
+        "Code",
+        "Bloc à chasse fixe"
+      ],
+      "table": [
+        "Tableau",
+        "Lignes et colonnes"
+      ],
+      "image": [
+        "Image",
+        "Depuis votre ordinateur"
+      ],
+      "pdf": [
+        "PDF",
+        "Intégrer un fichier PDF"
+      ],
+      "columns2": [
+        "2 colonnes",
+        "Diviser la page en deux"
+      ],
+      "columns3": [
+        "3 colonnes",
+        "Trois côte à côte"
+      ],
+      "columns4": [
+        "4 colonnes",
+        "Quatre côte à côte"
+      ],
+      "page": [
+        "Page",
+        "Une page dans cette page"
+      ],
+      "dictate": [
+        "Dicter",
+        "Parlez, il écrit"
+      ]
+    },
+    "marks": {
+      "bold": "Gras",
+      "italic": "Italique",
+      "underline": "Souligné",
+      "strike": "Barré",
+      "code": "Code en ligne",
+      "link": "Lien",
+      "highlight": "Surligner"
+    },
+    "imageTooLarge": "Les images doivent faire moins de 10 Mo.",
+    "pdfHide": "Masquer l'aperçu",
+    "pdfShow": "Afficher l'aperçu",
+    "pdfMissing": "Ce fichier n'a pas pu être lu.",
+    "fileTooLarge": "Ce fichier est trop volumineux.",
+    "cannotTurn": "Cette sélection ne peut pas devenir ce bloc.",
+    "chooseImage": "Choisir une image…",
+    "chooseImageHint": "Ou collez-en une, ou déposez-la sur la page.",
+    "choosePdf": "Choisir un PDF…",
+    "choosePdfHint": "Il est enregistré chiffré avec la page.",
+    "openLink": "Ouvrir le lien",
+    "linkHint": "Ctrl + clic pour ouvrir",
+    "heading1": "Titre 1",
+    "heading2": "Titre 2",
+    "heading3": "Titre 3"
+  },
+  "home": {
+    "title": "Accueil",
+    "hello": {
+      "morning": "Bonjour, {{name}}",
+      "afternoon": "Bon après-midi, {{name}}",
+      "evening": "Bonsoir, {{name}}",
+      "night": "Encore là, {{name}} ?",
+      "away": "Bon retour, {{name}}"
+    },
+    "warm": {
+      "morning": "Le carnet est ouvert. Prenez votre temps.",
+      "afternoon": "Rien ne vous attend ici.",
+      "evening": "Quel plaisir de vous revoir.",
+      "night": "Les autres dorment. Personne ne lit ceci à part vous.",
+      "away": "Ça faisait longtemps. Tout est resté à sa place."
+    },
+    "ask": {
+      "morning": "À quoi pensez-vous ce matin ?",
+      "afternoon": "Comment se passe votre journée ?",
+      "evening": "Comment s’est passée votre journée ?",
+      "night": "Qu’est-ce qui vous empêche de dormir ?",
+      "away": "Que s’est-il passé pendant votre absence ?"
+    },
+    "askMore": "Vous avez écrit aujourd’hui. Ajouter quelque chose ?",
+    "ago": {
+      "week": "Il y a une semaine",
+      "month": "Il y a un mois",
+      "year": "Il y a un an"
+    },
+    "cast": {
+      "qalam": "Je suis Qalam. J’écris la première ligne si vous n’y arrivez pas.",
+      "waraqa": "Je suis Waraqa. Je garde chaque page que vous me donnez.",
+      "hibr": "Je suis Hibr. Tout ce qui est ici reste entre nous.",
+      "noon": "Je suis Noon. Je garde le point et la date du jour.",
+      "nuqta": "Je suis Nuqta. Je ferme la porte quand vous partez.",
+      "asleep": "Chut. Ils dorment."
+    },
+    "openJournal": "Ouvrir le journal du jour",
+    "writeJournal": "Écrire le journal du jour",
+    "folders": "Dossiers",
+    "streak": "Série de journal",
+    "days_one": "jour",
+    "days_other": "jours",
+    "filter": "Filtrer les pages",
+    "all": "Tout",
+    "unfiled": "Sans dossier",
+    "selected_one": "{{count}} sélectionnée",
+    "selected_other": "{{count}} sélectionnées",
+    "empty": "Aucune page ici pour l’instant.",
+    "figCaption": "Fig. 01 · Journal, 30 derniers jours",
+    "layoutSheets": "Feuilles",
+    "tagJournal": "Journal",
+    "upcoming": "À venir",
+    "yesterday": "Hier",
+    "thisWeek": "Cette semaine",
+    "continue": "Reprendre",
+    "continueWriting": "Continuer à écrire",
+    "timeline": "Chronologie",
+    "byEdited": "Par modification",
+    "byDate": "Par date",
+    "contents": "Sommaire",
+    "expand": "Ouvrir",
+    "collapse": "Fermer",
+    "pinFolder": "Épingler dans la barre latérale",
+    "unpinFolder": "Retirer de la barre latérale",
+    "allInFolder": "Les {{count}} pages →",
+    "pinHint": "Épinglez un dossier pour le garder dans la barre latérale."
+  },
+  "properties": {
+    "date": "Date",
+    "journal": "Journal quotidien",
+    "journalOn": "Ceci est une entrée de journal",
+    "journalOff": "Pas une entrée de journal",
+    "folder": "Dossier",
+    "empty": "Vide",
+    "clear": "Effacer"
+  },
+  "pages": {
+    "title": "Toutes les pages"
+  },
+  "calendar": {
+    "title": "Calendrier",
+    "previous": "Mois précédent",
+    "next": "Mois suivant",
+    "today": "Aujourd'hui",
+    "thisMonth": "Journal ce mois-ci",
+    "written": "Journal écrit",
+    "notWritten": "Pas de journal",
+    "otherPages": "Autres pages",
+    "selected": "Jour sélectionné",
+    "emptyEntry": "Entrée vide",
+    "writeFor": "Écrire le journal de ce jour",
+    "pagesThatDay_one": "{{count}} autre page",
+    "pagesThatDay_other": "{{count}} autres pages",
+    "none": "Rien d’autre ce jour-là.",
+    "newOnDay": "Nouvelle page ce jour-là",
+    "pages": "Pages",
+    "words": "Mots",
+    "notebookDay": "Jour du carnet"
+  },
+  "table": {
+    "rowAbove": "Insérer une ligne au-dessus",
+    "rowBelow": "Insérer une ligne en dessous",
+    "colLeft": "Insérer une colonne à gauche",
+    "colRight": "Insérer une colonne à droite",
+    "header": "Ligne d'en-tête",
+    "merge": "Fusionner les cellules",
+    "split": "Scinder la cellule",
+    "deleteRow": "Supprimer la ligne",
+    "deleteCol": "Supprimer la colonne",
+    "delete": "Supprimer le tableau",
+    "addRow": "Ajouter une ligne",
+    "addCol": "Ajouter une colonne"
+  },
+  "transfer": {
+    "exportTitle": "Exporter",
+    "exportBody": "Toutes les pages en Markdown avec leurs images et PDF, plus une sauvegarde Tadween complète, dans un seul fichier zip. L'export n'est pas chiffré : rangez-le en lieu sûr.",
+    "exportButton": "Exporter toutes les pages",
+    "working": "En cours…",
+    "exported_one": "{{count}} page exportée.",
+    "exported_other": "{{count}} pages exportées.",
+    "failed": "Cela n'a pas fonctionné. Rien n'a été modifié.",
+    "importTitle": "Importer",
+    "importBody": "Apportez vos notes depuis une autre application. Dossiers, dates, images et PDF suivent.",
+    "obsidian": "Obsidian",
+    "obsidianHint": "Choisissez le dossier de votre coffre",
+    "notion": "Notion",
+    "notionHint": "Choisissez le .zip exporté (Markdown ou HTML). Les bases de données deviennent des tableaux.",
+    "markdown": "Dossier Markdown",
+    "markdownHint": "Fichiers .md, .txt et .html",
+    "backup": "Sauvegarde Tadween",
+    "backupHint": "Un .zip exporté depuis Tadween",
+    "imported_one": "{{count}} page importée.",
+    "imported_other": "{{count}} pages importées.",
+    "spreadsheet": "Tableur",
+    "spreadsheetHint": ".csv, .xlsx ou .xls : chaque feuille devient une page avec un tableau",
+    "exportedMissing_one": "{{count}} fichier illisible a été laissé de côté.",
+    "exportedMissing_other": "{{count}} fichiers illisibles ont été laissés de côté."
+  },
+  "tour": {
+    "label": "Visite",
+    "skip": "Passer le tutoriel",
+    "next": "Suivant",
+    "done": "Commencer à écrire",
+    "gotIt": "Compris",
+    "roles": {
+      "qalam": "Le calame",
+      "waraqa": "La page",
+      "hibr": "L’encre",
+      "noon": "Le bol",
+      "nuqta": "Le point"
+    },
+    "home": {
+      "qalam": "J’écris la première ligne. Appuyez sur Nouvelle page, ou Ctrl N, et lancez-vous. Tapez / pour les titres, listes, tableaux, colonnes et plus.",
+      "waraqa": "Toutes vos pages vivent ici, sur une frise, avec vos dossiers à côté. Glissez une page sur un dossier pour la ranger, ou faites un clic droit pour en voir plus.",
+      "hibr": "Vous cherchez quelque chose ? Ctrl K. Je retrouve toute page, en arabe ou en latin, avec ou sans accents.",
+      "noon": "Tenez un journal quotidien. Chaque jour écrit remplit un point dans le Calendrier. Essayez de ne pas casser la ligne.",
+      "nuqta": "Tout reste sur cet ordinateur, chiffré avec votre mot de passe. Appuyez sur Verrouiller, ou Ctrl L, quand vous vous absentez."
+    },
+    "settings": {
+      "waraqa": "C’est le nom avec lequel je vous salue. Changez-le quand vous voulez ; votre nom d’utilisateur ne change pas.",
+      "noon": "Choisissez la langue de l'application. En arabe, tout passe de droite à gauche ; votre écriture suit toujours son propre sens.",
+      "nuqta": "La sécurité est ici : le délai de verrouillage, votre mot de passe, et une nouvelle clé de récupération si vous perdez la vôtre.",
+      "hibr": "Vous venez d’Obsidian ou de Notion ? Importez tout ici. Vous pouvez aussi exporter toutes vos pages."
+    },
+    "page": {
+      "qalam": "Chaque page commence par un titre. Appuyez sur Entrée pour passer au texte.",
+      "hibr": "Tapez / pour ajouter un titre, une liste, un tableau, un PDF, des colonnes ou une page dans cette page. Sélectionnez des mots pour les mettre en gras, les lier ou les surligner. Survolez une ligne et faites glisser la poignée pour la déplacer.",
+      "noon": "Donnez une date à la page, cochez Journal quotidien pour en faire une entrée de journal, ou rangez-la dans un dossier.",
+      "nuqta": "Pas de bouton Enregistrer : j’enregistre et je chiffre chaque mot pendant que vous écrivez. Épinglez ou déplacez la page d’ici.",
+      "waraqa": "Vous préférez parler ? Appuyez sur Dicter ici en bas, choisissez la langue parlée, et j'écris pendant que vous parlez. Tout reste sur cet ordinateur."
+    }
+  },
+  "icons": {
+    "title": "Icône de la page",
+    "add": "Ajouter une icône",
+    "change": "Changer l’icône",
+    "filter": "Filtrer les icônes",
+    "remove": "Retirer",
+    "colour": "Couleur",
+    "count": "{{count}} icônes",
+    "colours": {
+      "ink": "Encre",
+      "graphite": "Graphite",
+      "lapis": "Lapis",
+      "sea": "Mer",
+      "ember": "Braise",
+      "brick": "Brique",
+      "olive": "Olive",
+      "sand": "Sable"
+    }
+  },
+  "dictation": {
+    "title": "Dictée",
+    "start": "Dicter",
+    "stop": "Arrêter",
+    "preparing": "Préparation du modèle",
+    "listening": "À l’écoute",
+    "writing": "Écriture",
+    "finishing": "Fin de la dictée",
+    "noMicrophone": "Aucun micro trouvé. Branchez-en un ou autorisez Tadween dans les paramètres de confidentialité de Windows.",
+    "noModel": "Le modèle vocal est absent. Réinstallez Tadween pour le restaurer.",
+    "failed": "La dictée s’est arrêtée de façon inattendue.",
+    "credits": "La dictée fonctionne sur cet ordinateur : NVIDIA FastConformer Arabic et Canary 180m Flash (CC BY 4.0), Silero VAD (MIT) et sherpa-onnx (Apache 2.0). Votre voix n'est jamais enregistrée ni envoyée où que ce soit.",
+    "language": "Langue parlée"
+  }
+}

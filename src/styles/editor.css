@@ -1,0 +1,1339 @@
+/* The writing surface. Every block carries its own `dir` (see
+   features/editor/direction.ts), so all spacing here uses logical properties:
+   Arabic blocks mirror themselves, the interface around them does not. */
+
+.page-body {
+  position: relative;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 72px 64px 0;
+}
+
+.page-title {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: var(--ink);
+  font-size: 46px;
+  line-height: 1.12;
+  text-align: start;
+  user-select: text;
+}
+
+.page-title:dir(rtl),
+html[dir="rtl"] .page-title:placeholder-shown {
+  line-height: 1.45;
+}
+
+.page-title.static {
+  margin-bottom: var(--space-2);
+}
+
+.page-title::placeholder {
+  color: color-mix(in srgb, var(--ink-muted) 45%, transparent);
+}
+
+.page-meta {
+  display: flex;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 var(--space-8);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--hairline);
+}
+
+
+.editor-host {
+  position: relative;
+}
+
+.tw-editor {
+  outline: none;
+  /* The blank space under the text is part of the editor, so a click there
+     lands at the end and a drag from there selects upwards. */
+  padding-bottom: 30vh;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  caret-color: var(--lapis);
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.tw-editor [dir] {
+  text-align: start;
+}
+
+/* Arabic reads best a little more open (brand rule: body 1.75). */
+.tw-editor [dir="rtl"] {
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+.tw-editor > * + * {
+  margin-top: 4px;
+}
+
+.tw-editor p {
+  margin: 0;
+  padding: 3px 0;
+}
+
+.tw-editor strong {
+  font-weight: 600;
+}
+
+.tw-editor em {
+  font-style: italic;
+}
+
+/* Arabic has no true italic; emphasis is colour (brand rule). */
+.tw-editor [dir="rtl"] em {
+  font-style: normal;
+  color: var(--lapis);
+}
+
+.tw-editor u {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.tw-editor s {
+  color: var(--ink-muted);
+}
+
+.tw-editor a {
+  color: var(--lapis);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--lapis) 40%, transparent);
+  cursor: text;
+}
+
+.tw-editor mark {
+  background: var(--lapis-soft);
+  color: var(--ink);
+  padding: 0.05em 0.1em;
+}
+
+.tw-editor code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  font-weight: 400;
+  padding: 0.12em 0.36em;
+  background: var(--paper-sunk);
+  color: var(--ember-text);
+}
+
+/* Headings */
+
+.tw-editor h1,
+.tw-editor h2,
+.tw-editor h3 {
+  margin: 0;
+  color: var(--ink);
+}
+
+.tw-editor h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.2;
+  margin-top: 28px;
+  padding: 3px 0;
+}
+
+.tw-editor h1[dir="rtl"] {
+  line-height: 1.5;
+}
+
+.tw-editor h2 {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.35;
+  margin-top: 22px;
+  padding: 2px 0;
+}
+
+.tw-editor h3 {
+  font-weight: 600;
+  font-size: 18.5px;
+  line-height: 1.4;
+  margin-top: 16px;
+  padding: 2px 0;
+}
+
+.tw-editor h2[dir="rtl"],
+.tw-editor h3[dir="rtl"] {
+  line-height: 1.6;
+}
+
+.tw-editor > :first-child {
+  margin-top: 0;
+}
+
+/* Lists */
+
+.tw-editor ul,
+.tw-editor ol {
+  margin: 0;
+  padding-inline-start: 26px;
+}
+
+.tw-editor li {
+  padding-inline-start: 2px;
+}
+
+.tw-editor li > p {
+  padding: 2px 0;
+}
+
+.tw-editor ul {
+  list-style: disc;
+}
+
+.tw-editor ul ul {
+  list-style: circle;
+}
+
+.tw-editor ul ul ul {
+  list-style: square;
+}
+
+.tw-editor li::marker {
+  color: var(--ink-muted);
+}
+
+.tw-editor ol li::marker {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+/* Brand rule: one digit system per piece; notes mix scripts, so 0 to 9. */
+.tw-editor ol[dir="rtl"] li::marker {
+  font-family: var(--font-sans);
+  font-size: 1em;
+}
+
+/* To-do */
+
+.tw-editor ul[data-type="taskList"] {
+  list-style: none;
+  padding-inline-start: 2px;
+}
+
+.tw-editor ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-inline-start: 0;
+}
+
+.tw-editor ul[data-type="taskList"] li > label {
+  flex: none;
+  margin-top: 7px;
+  user-select: none;
+}
+
+.tw-editor ul[data-type="taskList"] li[dir="rtl"] > label {
+  margin-top: 9px;
+}
+
+.tw-editor ul[data-type="taskList"] li > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.tw-editor ul[data-type="taskList"] input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  border: 1.5px solid var(--ink-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 120ms var(--ease), border-color 120ms var(--ease);
+}
+
+.tw-editor ul[data-type="taskList"] input[type="checkbox"]:hover {
+  border-color: var(--ink);
+}
+
+.tw-editor ul[data-type="taskList"] input[type="checkbox"]:checked {
+  background: var(--lapis-field);
+  border-color: var(--lapis-field);
+}
+
+.tw-editor ul[data-type="taskList"] input[type="checkbox"]:checked::after {
+  content: "";
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid var(--on-lapis);
+  border-bottom: 2px solid var(--on-lapis);
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.tw-editor li[data-checked="true"] > div {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--ink-muted) 60%, transparent);
+}
+
+/* Quote and callout */
+
+.tw-editor blockquote {
+  margin: 6px 0;
+  padding: 2px 0;
+  padding-inline-start: 18px;
+  border-inline-start: 3px solid var(--ink);
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.tw-editor blockquote[dir="rtl"] {
+  line-height: 1.75;
+}
+
+.tw-editor .callout {
+  margin: 6px 0;
+  padding: 14px 18px;
+  padding-inline-start: 16px;
+  background: var(--lapis-soft);
+  border-inline-start: 3px solid var(--lapis);
+}
+
+.tw-editor .callout > * + * {
+  margin-top: 4px;
+}
+
+/* Toggle (details) */
+
+.tw-editor .toggle {
+  display: flex;
+  gap: 4px;
+  margin: 2px 0;
+}
+
+.tw-editor .toggle > button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 3px;
+  color: var(--ink-muted);
+  border-radius: var(--radius-sm);
+}
+
+.tw-editor .toggle > button:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.tw-editor .toggle > button::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 7px;
+  border-color: transparent transparent transparent currentColor;
+  transition: transform 160ms var(--ease);
+}
+
+.tw-editor .toggle[dir="rtl"] > button::before {
+  border-width: 5px 7px 5px 0;
+  border-color: transparent currentColor transparent transparent;
+}
+
+.tw-editor .toggle.is-open > button::before {
+  transform: rotate(90deg);
+}
+
+.tw-editor .toggle > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.tw-editor .toggle summary {
+  list-style: none;
+  font-weight: 400;
+  padding: 3px 0;
+}
+
+.tw-editor .toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.tw-editor .toggle [data-type="detailsContent"] {
+  padding-inline-start: 2px;
+}
+
+.tw-editor .toggle:not(.is-open) [data-type="detailsContent"] {
+  display: none;
+}
+
+/* Divider, code, table, image */
+
+.tw-editor hr {
+  border: 0;
+  height: 1px;
+  margin: 18px 0;
+  background: var(--hairline);
+  cursor: pointer;
+}
+
+.tw-editor hr.ProseMirror-selectednode {
+  background: var(--lapis);
+}
+
+.tw-editor pre {
+  margin: 8px 0;
+  padding: 16px 18px;
+  background: var(--paper-sunk);
+  border: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  overflow-x: auto;
+  white-space: pre;
+  direction: ltr;
+  text-align: start;
+}
+
+.tw-editor pre code {
+  padding: 0;
+  background: none;
+  color: var(--ink);
+  font-size: inherit;
+}
+
+.tw-editor .tableWrapper {
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.tw-editor table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.tw-editor td,
+.tw-editor th {
+  position: relative;
+  min-width: 80px;
+  padding: 6px 10px;
+  border: 1px solid var(--hairline);
+  vertical-align: top;
+}
+
+.tw-editor th {
+  font-weight: 500;
+  background: var(--paper-sunk);
+  text-align: start;
+}
+
+.tw-editor td > p,
+.tw-editor th > p {
+  padding: 0;
+}
+
+.tw-editor .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--selection);
+  pointer-events: none;
+}
+
+.tw-editor .column-resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  right: -2px;
+  width: 3px;
+  background: var(--lapis);
+  pointer-events: none;
+}
+
+.tw-editor.resize-cursor {
+  cursor: col-resize;
+}
+
+.tw-editor img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 8px 0;
+}
+
+.tw-editor [data-resize-container] {
+  margin: 8px 0;
+}
+
+.tw-editor [data-resize-container] img {
+  margin: 0;
+}
+
+.tw-editor [data-resize-handle] {
+  width: 10px;
+  height: 10px;
+  background: var(--paper-raised);
+  border: 1.5px solid var(--lapis);
+  opacity: 0;
+  transition: opacity 120ms;
+}
+
+.tw-editor [data-resize-container]:hover [data-resize-handle],
+.tw-editor .ProseMirror-selectednode [data-resize-handle] {
+  opacity: 1;
+}
+
+.tw-editor .ProseMirror-selectednode img,
+.tw-editor img.ProseMirror-selectednode {
+  outline: 2px solid var(--lapis);
+  outline-offset: 2px;
+}
+
+/* Placeholder, selection, gap cursor */
+
+.tw-editor .is-empty::before {
+  content: attr(data-placeholder);
+  float: inline-start;
+  height: 0;
+  pointer-events: none;
+  color: color-mix(in srgb, var(--ink-muted) 60%, transparent);
+}
+
+.tw-editor .is-editor-empty:first-child::before {
+  color: color-mix(in srgb, var(--ink-muted) 55%, transparent);
+}
+
+.tw-editor .ProseMirror-gapcursor::after {
+  border-top-color: var(--ink);
+}
+
+.tw-editor .ProseMirror-selectednode {
+  outline: none;
+}
+
+.tw-editor ::selection {
+  background: var(--selection);
+}
+
+/* ── Block handle (the gutter) ─────────────────────────────────────────── */
+
+.block-handle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding-inline-end: 6px;
+  transition: opacity 120ms var(--ease);
+}
+
+.block-handle[data-hidden="true"],
+.block-handle.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bh-btn {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 26px;
+  color: color-mix(in srgb, var(--ink-muted) 75%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+.bh-btn:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.bh-grip {
+  cursor: grab;
+}
+
+.bh-grip:active {
+  cursor: grabbing;
+}
+
+.block-menu {
+  z-index: 60;
+}
+
+/* ── Slash menu ────────────────────────────────────────────────────────── */
+
+.slash-menu {
+  width: 300px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.slash-item {
+  height: auto;
+  min-height: 48px;
+  padding: 6px 8px;
+}
+
+.slash-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+}
+
+.slash-icon svg {
+  color: var(--ink);
+}
+
+.slash-text {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.slash-text > span {
+  font-size: 14px;
+}
+
+.slash-text small {
+  font-size: 12px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slash-empty {
+  padding: var(--space-3);
+  font-size: 13px;
+}
+
+/* ── Bubble toolbar ────────────────────────────────────────────────────── */
+
+.bubble {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 55;
+}
+
+.bubble-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  color: color-mix(in srgb, var(--paper) 82%, transparent);
+  font-size: 13px;
+}
+
+.bubble-btn:hover {
+  background: color-mix(in srgb, var(--paper) 12%, transparent);
+  color: var(--paper);
+}
+
+.bubble-btn[aria-pressed="true"] {
+  color: var(--paper);
+  background: color-mix(in srgb, var(--paper) 18%, transparent);
+}
+
+.bubble-turn {
+  position: relative;
+}
+
+.bubble-turn-btn {
+  padding: 0 8px;
+  font-weight: 500;
+}
+
+.bubble-sep {
+  width: 1px;
+  height: 18px;
+  margin: 0 3px;
+  background: color-mix(in srgb, var(--paper) 22%, transparent);
+}
+
+.turn-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-start: -3px;
+  color: var(--ink);
+}
+
+.bubble-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-block: 0;
+  padding-inline: 8px 4px;
+}
+
+.bubble-link input {
+  width: 260px;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--paper);
+  font-size: 13px;
+}
+
+.bubble-link input::placeholder {
+  color: color-mix(in srgb, var(--paper) 50%, transparent);
+}
+
+/* ── PDF ───────────────────────────────────────────────────────────────── */
+
+.tw-editor .pdf-block {
+  margin: 10px 0;
+  border: 1px solid var(--hairline);
+  background: var(--paper-raised);
+}
+
+.tw-editor .pdf-block[data-selected="true"] {
+  border-color: var(--lapis);
+}
+
+.pdf-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: 8px;
+  padding-inline: 12px 8px;
+  cursor: grab;
+}
+
+.pdf-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--lapis-soft);
+  color: var(--lapis);
+}
+
+.pdf-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+.pdf-frame {
+  border-top: 1px solid var(--hairline);
+  background: var(--paper-sunk);
+}
+
+.pdf-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pdf-loading {
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--hover), transparent) 0 0 / 50% 100% no-repeat var(--paper-sunk);
+  animation: pdf-shimmer 1.2s linear infinite;
+}
+
+@keyframes pdf-shimmer {
+  from {
+    background-position: -50% 0;
+  }
+  to {
+    background-position: 150% 0;
+  }
+}
+
+.pdf-resize {
+  height: 8px;
+  cursor: ns-resize;
+  border-top: 1px solid var(--hairline);
+}
+
+.pdf-resize:hover {
+  background: var(--lapis-soft);
+}
+
+.pdf-missing {
+  padding: var(--space-6);
+  border-top: 1px solid var(--hairline);
+  font-size: 13.5px;
+}
+
+/* ── Columns ───────────────────────────────────────────────────────────── */
+
+.tw-editor .columns {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  gap: 28px;
+  margin: 8px 0;
+}
+
+.tw-editor .columns[data-count="3"] {
+  --cols: 3;
+}
+
+.tw-editor .columns[data-count="4"] {
+  --cols: 4;
+  gap: 20px;
+}
+
+.tw-editor .column {
+  min-width: 0;
+  padding: 2px 0;
+  border-inline-start: 1px dashed transparent;
+  transition: border-color 160ms var(--ease);
+}
+
+.tw-editor .column + .column {
+  padding-inline-start: 14px;
+  margin-inline-start: -14px;
+}
+
+.tw-editor:focus-within .column + .column,
+.tw-editor .columns:hover .column + .column {
+  border-inline-start-color: var(--hairline);
+}
+
+/* ── Tables: roomier cells and clear editing affordances ──────────────── */
+
+.tw-editor .tableWrapper {
+  margin: 14px 0;
+  padding-bottom: 4px;
+}
+
+.tw-editor td,
+.tw-editor th {
+  padding: 8px 12px;
+  min-width: 110px;
+  line-height: 1.55;
+  transition: background-color 100ms linear;
+}
+
+.tw-editor td:focus-within,
+.tw-editor th:focus-within {
+  background: color-mix(in srgb, var(--lapis-soft) 55%, transparent);
+}
+
+.tw-editor td > p:empty::after,
+.tw-editor th > p:empty::after {
+  content: "\200b";
+}
+
+.tw-editor th {
+  font-weight: 500;
+  font-size: 13.5px;
+}
+
+.tw-editor .column-resize-handle {
+  width: 2px;
+  right: -1px;
+}
+
+.table-toolbar {
+  position: absolute;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  animation: menu-in 140ms var(--ease-out);
+}
+
+.table-toolbar .bubble-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.table-toolbar .bubble-btn.danger:hover {
+  color: var(--ember);
+}
+
+.table-add {
+  position: absolute;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--hairline);
+  color: var(--ink-muted);
+  background: var(--paper);
+  opacity: 0;
+  transition: opacity 120ms var(--ease), background-color 120ms var(--ease);
+}
+
+.table-add-row {
+  height: 22px;
+}
+
+.table-add-col {
+  width: 22px;
+}
+
+.page-body:hover .table-add,
+.table-add:focus-visible {
+  opacity: 1;
+}
+
+.table-add:hover {
+  background: var(--lapis-soft);
+  border-color: var(--lapis);
+  color: var(--lapis);
+}
+
+/* ── Page icon ──────────────────────────────────────────────────────────── */
+
+.page-icon-row {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 28px;
+  margin-bottom: var(--space-3);
+}
+
+.page-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-inline-start: -8px;
+}
+
+.page-icon-btn:hover {
+  background: var(--hover);
+}
+
+.page-icon-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0;
+  color: var(--ink-muted);
+  transition: opacity 120ms var(--ease);
+}
+
+.page-body:hover .page-icon-add,
+.page-icon-add:focus-visible,
+.page-icon-add[aria-expanded="true"] {
+  opacity: 1;
+}
+
+.page-icon-add:hover {
+  color: var(--ink);
+}
+
+.icon-picker {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-start: 0;
+  z-index: 60;
+  width: 372px;
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  animation: menu-in 140ms var(--ease-out);
+}
+
+.icon-picker-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.icon-picker-head input {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.icon-colours {
+  display: flex;
+  gap: 6px;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.icon-swatch {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  outline-offset: 2px;
+}
+
+.icon-swatch[aria-checked="true"] {
+  outline: 1.5px solid var(--ink);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  max-height: 260px;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.icon-cell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  box-shadow: inset -1px -1px 0 color-mix(in srgb, var(--hairline) 60%, transparent);
+}
+
+.icon-cell:hover {
+  background: var(--hover);
+}
+
+.icon-cell[aria-pressed="true"] {
+  background: var(--lapis-soft);
+}
+
+.icon-empty {
+  grid-column: 1 / -1;
+  padding: var(--space-4);
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+
+.icon-foot {
+  padding: var(--space-2) var(--space-3);
+}
+
+/* Asked for a file from the keyboard: one click to open the chooser. */
+.file-prompt {
+  position: fixed;
+  z-index: 60;
+  display: grid;
+  gap: 6px;
+  width: 320px;
+  padding: var(--space-3);
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  animation: menu-in 140ms var(--ease-out);
+}
+
+.file-prompt-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 44px;
+  padding: 0 var(--space-4);
+  background: var(--lapis-field);
+  color: var(--on-lapis);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.file-prompt-btn:hover {
+  background: color-mix(in srgb, var(--lapis-field) 88%, var(--ink));
+}
+
+.file-prompt-hint {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+/* ── Dictation ─────────────────────────────────────────────────────────────
+   What is being heard sits at the caret in muted ink until the speaker
+   pauses; then it becomes text. The strip at the foot of the page draws the
+   voice as a hairline signal: a node for each phrase written, the ember dot
+   where the signal is now. */
+
+.tw-editor .dictation-block.is-empty::before {
+  content: none;
+}
+
+.tw-editor .dictation-rtl {
+  direction: rtl;
+}
+
+.tw-editor .dictation-ltr {
+  direction: ltr;
+}
+
+.dictation-live {
+  color: var(--ink-muted);
+  text-decoration: underline 1px var(--hairline);
+  text-underline-offset: 0.35em;
+}
+
+/* The band at the foot of the page, at rest: it says what it does. */
+.dictation-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-4);
+  border-top: 1px solid var(--hairline);
+  background: var(--paper);
+}
+
+.dictation-start {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 30px;
+  padding: 0 var(--space-3);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background-color 100ms linear;
+}
+
+.dictation-start:hover {
+  background: var(--lapis-field);
+  color: var(--on-lapis);
+}
+
+.dictation-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 var(--space-2);
+  font-size: 13.5px;
+  color: var(--ink);
+  transition: background-color 100ms linear;
+}
+
+.dictation-language:hover,
+.dictation-language[aria-expanded="true"] {
+  background: var(--hover);
+}
+
+.dictation-language svg {
+  color: var(--ink-muted);
+}
+
+.dictation-menu {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  inset-inline-start: 0;
+}
+
+.dictation-keys {
+  margin-inline-start: auto;
+}
+
+.dictation-strip {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 44px;
+  padding: 0 var(--space-4);
+  border-top: 1px solid var(--hairline);
+  background: var(--paper);
+  animation: fade-in 160ms var(--ease-out);
+}
+
+.dictation-name {
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.dictation-state {
+  min-width: 128px;
+  white-space: nowrap;
+}
+
+.dictation-signal {
+  position: relative;
+  flex: 1;
+  min-width: 96px;
+  height: 28px;
+  margin-inline-end: 6px;
+}
+
+.dictation-signal svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.dictation-rule {
+  stroke: var(--hairline);
+  stroke-width: 1;
+}
+
+.dictation-trace {
+  fill: none;
+  stroke: var(--ink-muted);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.dictation-node {
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+.dictation-now {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--ember);
+  transition: transform 60ms linear;
+}
+
+.dictation-strip[data-phase="starting"] .dictation-now,
+.dictation-strip[data-phase="stopping"] .dictation-now {
+  animation: dictation-wait 1.1s var(--ease) infinite alternate;
+}
+
+@keyframes dictation-wait {
+  from { opacity: 1; }
+  to { opacity: 0.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dictation-now { transition: none; }
+  .dictation-strip[data-phase] .dictation-now { animation: none; }
+}
+
+.dictation-clock {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.dictation-stop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  padding: 4px 0;
+}
+
+.dictation-stop:hover {
+  color: var(--lapis);
+}
+
+.dictation-stop:disabled {
+  color: var(--ink-muted);
+}
+
+.dictation-stop kbd {
+  font: inherit;
+  color: var(--ink-muted);
+  padding: 0 4px;
+  border: 1px solid var(--hairline);
+}
+
+/* A page inside a page: one row in the text. */
+
+.page-link-block {
+  margin: 2px 0;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 6px var(--space-2);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink);
+  text-align: start;
+  transition: background-color 100ms linear;
+}
+
+.page-link:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.page-link > svg {
+  flex: none;
+  color: var(--ink-muted);
+}
+
+.page-link-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.page-link .page-link-go {
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.page-link:hover .page-link-go {
+  opacity: 1;
+}
+
+.page-link[data-off="true"],
+.page-link[data-off="true"] .page-link-title {
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.page-link-block[data-selected="true"] .page-link {
+  box-shadow: inset 0 0 0 1px var(--lapis);
+}
+
+.pages-inside {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-8);
+}
+
+.pages-inside h2 {
+  margin: 0 0 var(--space-2);
+}

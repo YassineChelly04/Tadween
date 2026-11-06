@@ -1,0 +1,301 @@
+/* Login: characters on the left, the form on the right. The composition is the
+   same in every language, so this file keeps physical left and right, and the
+   page stays left to right even in Arabic. Only the writing moves. */
+
+.login {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(440px, 1fr);
+  background: var(--paper);
+}
+
+.login-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--paper);
+  border-right: 1px solid var(--hairline);
+  overflow: hidden;
+}
+
+.login-art-top {
+  padding: calc(var(--titlebar-h) + var(--space-4)) var(--space-8) 0;
+}
+
+.characters {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 86%;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.ch-fill-lapis {
+  fill: var(--ch-lapis);
+}
+
+.ch-fill-ink {
+  fill: var(--ch-drop);
+  stroke: var(--ch-drop-edge);
+  stroke-width: 1.5;
+}
+
+.ch-fill-olive {
+  fill: var(--ch-olive);
+}
+
+.ch-eye-white {
+  fill: var(--ch-white);
+}
+
+.ch-pupil,
+.ch-dot {
+  fill: var(--ch-black);
+}
+
+.ch-ember {
+  fill: var(--ch-ember);
+}
+
+.ch-stroke-light,
+.ch-stroke-dark {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ch-stroke-light {
+  stroke: var(--ch-white);
+}
+
+.ch-stroke-dark {
+  stroke: var(--ch-black);
+}
+
+.ch-ground {
+  stroke: color-mix(in srgb, var(--lapis) 30%, transparent);
+  stroke-width: 1;
+}
+
+/* Form side */
+
+.login-side {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--titlebar-h) + var(--space-2)) var(--space-12) var(--space-6);
+}
+
+.login-lang {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-card {
+  align-self: center;
+  justify-self: center;
+  width: min(360px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-8);
+}
+
+.login-form {
+  width: 100%;
+  display: grid;
+  gap: var(--space-6);
+}
+
+.login-form header {
+  display: grid;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.login-form header p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 46px;
+}
+
+.login-forgot {
+  justify-self: center;
+  font-size: 13.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mono-input {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.06em;
+  font-size: 15px !important;
+}
+
+.mono-input::placeholder {
+  letter-spacing: 0.06em;
+}
+
+/* Language menu */
+
+.lang-menu {
+  position: relative;
+}
+
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-size: 13px;
+  color: var(--ink-muted);
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.lang-trigger:hover {
+  background: var(--hover);
+  color: var(--ink);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 190px;
+}
+
+@media (max-width: 1000px) {
+  .login {
+    grid-template-columns: minmax(0, 0.9fr) minmax(400px, 1fr);
+  }
+  .login-side {
+    padding-inline: var(--space-8);
+  }
+}
+
+/* ── The Tadween cast ──────────────────────────────────────────────────── */
+
+.characters .ch {
+  cursor: pointer;
+  transition: none;
+}
+
+.ch-nuqta {
+  cursor: grab;
+}
+
+.ch-nuqta:active {
+  cursor: grabbing;
+}
+
+.ch-fill-paper {
+  fill: var(--ch-paper);
+  stroke: var(--ch-paper-edge);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.ch-rule {
+  stroke: var(--ch-rule);
+  stroke-width: 1.5;
+}
+
+.ch-writing {
+  stroke: var(--ch-writing);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.ch-fold {
+  fill: var(--ch-fold);
+  stroke: var(--ch-paper-edge);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.ch-nib {
+  stroke: var(--ch-white);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.ch-rim {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ch-white) 35%, transparent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ch-stroke-light.thin,
+.ch-stroke-dark.thin {
+  stroke-width: 2.5;
+}
+
+.ch-scribble {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ch-z {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  fill: var(--lapis);
+  pointer-events: none;
+}
+
+.characters .ch-eye-white,
+.characters .ch-pupil,
+.characters .ch-dot {
+  transition: none;
+}
+
+.login-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.login-art-top {
+  position: relative;
+  z-index: 1;
+}
+
+/* In Arabic the writing sits on the right; nothing else moves. */
+:lang(ar) .login-form,
+:lang(ar) .login-form header {
+  text-align: right;
+}
+
+/* It belongs to the logo above it, so it stays with it. */
+:lang(ar) .login-art-hint {
+  text-align: left;
+}
+
+:lang(ar) .login .field-head {
+  flex-direction: row-reverse;
+}
+
+:lang(ar) .login .field-input input:not(.mono-input) {
+  text-align: right;
+}

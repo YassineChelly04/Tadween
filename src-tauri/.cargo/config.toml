@@ -1,0 +1,4 @@
+# sherpa-onnx's Windows libraries are built against the static C runtime (/MT),
+# so the app links it statically too. It also means no VC++ redistributable.
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
