@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Tadween: an encrypted, local-first notes app for Arabic and Latin writing.",
+  "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {
     "dev": "vite",

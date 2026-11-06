@@ -9,7 +9,7 @@ Everything stays on your computer, encrypted. You can speak instead of type, off
 
 **[Download Tadween 1.0.0 for Windows](https://github.com/YassineChelly04/Tadween/releases/latest)**
 
-Free · No online account · No cloud · No tracking
+Free · Open source · No online account · No cloud · No tracking
 
 </div>
 
@@ -226,4 +226,18 @@ square corners, hairlines instead of shadows. The Tadween mark follows the same 
 (64-unit grid, 5.5 monoline stroke) but is its own sign: two lines of writing ending in a ن,
 the last letter of تدوين, whose dot is the ember. The developer's YC mark appears only in About.
 
-Flags: [flag-icons](https://github.com/lipis/flag-icons) (MIT).
+## License
+
+Copyright © 2026 Yassine Chelly.
+
+Tadween is free software under the [GNU General Public License, version 3](LICENSE). You can use, study, change and share it. If you distribute it, changed or not, you must offer the complete source under the same license. It comes with no warranty.
+
+**The name and brand are not part of that license.** As section 7(e) of the GPL allows, it grants no rights to the Tadween name, the Tadween mark, the YC mark, or the names and designs of the characters as brand identifiers. If you publish your own version, give it a different name and logo so nobody mistakes it for Tadween.
+
+Parts that come from others keep their own licenses:
+
+- Readex Pro, Markazi Text and JetBrains Mono: SIL Open Font License 1.1
+- NVIDIA FastConformer Hybrid Large (ar) and Canary 180m Flash speech models: CC BY 4.0, © NVIDIA Corporation
+- Silero VAD: MIT, © Silero Team
+- [flag-icons](https://github.com/lipis/flag-icons): MIT
+- sherpa-onnx: Apache 2.0
